@@ -63,16 +63,18 @@ task2/CMakeFiles/task2_generate_messages_eus: /home/anifan/rmua/catkin_ws/devel/
 /home/anifan/rmua/catkin_ws/devel/share/roseus/ros/task2/msg/StringStamped.l: /opt/ros/melodic/share/std_msgs/msg/String.msg
 /home/anifan/rmua/catkin_ws/devel/share/roseus/ros/task2/msg/StringStamped.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/anifan/rmua/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from task2/StringStamped.msg"
-	cd /home/anifan/rmua/catkin_ws/build/task2 && ../catkin_generated/env_cached.sh /home/anifan/anaconda3/envs/py27/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/anifan/rmua/catkin_ws/src/task2/msg/StringStamped.msg -Itask2:/home/anifan/rmua/catkin_ws/src/task2/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p task2 -o /home/anifan/rmua/catkin_ws/devel/share/roseus/ros/task2/msg
+	cd /home/anifan/rmua/catkin_ws/build/task2 && ../catkin_generated/env_cached.sh /home/anifan/anaconda3/envs/py27/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/anifan/rmua/catkin_ws/src/task2/msg/StringStamped.msg -Itask2:/home/anifan/rmua/catkin_ws/src/task2/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -p task2 -o /home/anifan/rmua/catkin_ws/devel/share/roseus/ros/task2/msg
 
 /home/anifan/rmua/catkin_ws/devel/share/roseus/ros/task2/srv/hello.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/anifan/rmua/catkin_ws/devel/share/roseus/ros/task2/srv/hello.l: /home/anifan/rmua/catkin_ws/src/task2/srv/hello.srv
+/home/anifan/rmua/catkin_ws/devel/share/roseus/ros/task2/srv/hello.l: /opt/ros/melodic/share/sensor_msgs/msg/Image.msg
+/home/anifan/rmua/catkin_ws/devel/share/roseus/ros/task2/srv/hello.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/anifan/rmua/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from task2/hello.srv"
-	cd /home/anifan/rmua/catkin_ws/build/task2 && ../catkin_generated/env_cached.sh /home/anifan/anaconda3/envs/py27/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/anifan/rmua/catkin_ws/src/task2/srv/hello.srv -Itask2:/home/anifan/rmua/catkin_ws/src/task2/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p task2 -o /home/anifan/rmua/catkin_ws/devel/share/roseus/ros/task2/srv
+	cd /home/anifan/rmua/catkin_ws/build/task2 && ../catkin_generated/env_cached.sh /home/anifan/anaconda3/envs/py27/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/anifan/rmua/catkin_ws/src/task2/srv/hello.srv -Itask2:/home/anifan/rmua/catkin_ws/src/task2/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -p task2 -o /home/anifan/rmua/catkin_ws/devel/share/roseus/ros/task2/srv
 
 /home/anifan/rmua/catkin_ws/devel/share/roseus/ros/task2/manifest.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/anifan/rmua/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp manifest code for task2"
-	cd /home/anifan/rmua/catkin_ws/build/task2 && ../catkin_generated/env_cached.sh /home/anifan/anaconda3/envs/py27/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/anifan/rmua/catkin_ws/devel/share/roseus/ros/task2 task2 std_msgs
+	cd /home/anifan/rmua/catkin_ws/build/task2 && ../catkin_generated/env_cached.sh /home/anifan/anaconda3/envs/py27/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/anifan/rmua/catkin_ws/devel/share/roseus/ros/task2 task2 std_msgs sensor_msgs geometry_msgs
 
 task2_generate_messages_eus: task2/CMakeFiles/task2_generate_messages_eus
 task2_generate_messages_eus: /home/anifan/rmua/catkin_ws/devel/share/roseus/ros/task2/msg/StringStamped.l

@@ -131,8 +131,8 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/anifan/rmua/catkin_ws/build/gtest/cmake_install.cmake")
-  include("/home/anifan/rmua/catkin_ws/build/task2/cmake_install.cmake")
   include("/home/anifan/rmua/catkin_ws/build/task1/cmake_install.cmake")
+  include("/home/anifan/rmua/catkin_ws/build/task2/cmake_install.cmake")
   include("/home/anifan/rmua/catkin_ws/build/task3/cmake_install.cmake")
 
 endif()

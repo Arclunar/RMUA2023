@@ -5,6 +5,7 @@ task2/CMakeFiles/server.dir/src/server.cpp.o: /home/anifan/rmua/catkin_ws/devel/
 task2/CMakeFiles/server.dir/src/server.cpp.o: /home/anifan/rmua/catkin_ws/devel/include/task2/helloRequest.h
 task2/CMakeFiles/server.dir/src/server.cpp.o: /home/anifan/rmua/catkin_ws/devel/include/task2/helloResponse.h
 task2/CMakeFiles/server.dir/src/server.cpp.o: /home/anifan/rmua/catkin_ws/src/task2/src/server.cpp
+task2/CMakeFiles/server.dir/src/server.cpp.o: /opt/ros/melodic/include/cv_bridge/cv_bridge.h
 task2/CMakeFiles/server.dir/src/server.cpp.o: /opt/ros/melodic/include/ros/advertise_options.h
 task2/CMakeFiles/server.dir/src/server.cpp.o: /opt/ros/melodic/include/ros/advertise_service_options.h
 task2/CMakeFiles/server.dir/src/server.cpp.o: /opt/ros/melodic/include/ros/assert.h
@@ -61,6 +62,10 @@ task2/CMakeFiles/server.dir/src/server.cpp.o: /opt/ros/melodic/include/ros/types
 task2/CMakeFiles/server.dir/src/server.cpp.o: /opt/ros/melodic/include/ros/wall_timer.h
 task2/CMakeFiles/server.dir/src/server.cpp.o: /opt/ros/melodic/include/ros/wall_timer_options.h
 task2/CMakeFiles/server.dir/src/server.cpp.o: /opt/ros/melodic/include/rosconsole/macros_generated.h
+task2/CMakeFiles/server.dir/src/server.cpp.o: /opt/ros/melodic/include/sensor_msgs/CompressedImage.h
+task2/CMakeFiles/server.dir/src/server.cpp.o: /opt/ros/melodic/include/sensor_msgs/Image.h
+task2/CMakeFiles/server.dir/src/server.cpp.o: /opt/ros/melodic/include/sensor_msgs/image_encodings.h
+task2/CMakeFiles/server.dir/src/server.cpp.o: /opt/ros/melodic/include/std_msgs/Header.h
 task2/CMakeFiles/server.dir/src/server.cpp.o: /opt/ros/melodic/include/xmlrpcpp/XmlRpcDecl.h
 task2/CMakeFiles/server.dir/src/server.cpp.o: /opt/ros/melodic/include/xmlrpcpp/XmlRpcValue.h
 

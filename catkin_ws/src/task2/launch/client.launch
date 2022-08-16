@@ -1,7 +1,7 @@
-<lanuch>
-
-    <node pkg="task2" type="client" name="server" output="screen">
-        <param name="loop_times" type="int" value="200">
+<launch>
+    <node pkg="task2" type="client" name="client">
+        <param name="load" type="string" value="hello,world!"/>
+        <param name="is_echo" type="bool" value="false"/>
+        <param name="loop_times" type="int" value="100"/>
     </node>
-
-</lanuch>
+</launch>

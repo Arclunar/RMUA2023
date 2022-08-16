@@ -92,12 +92,16 @@ subscriber_EXTERNAL_OBJECTS =
 /home/anifan/rmua/catkin_ws/devel/lib/task2/subscriber: task2/CMakeFiles/subscriber.dir/build.make
 /home/anifan/rmua/catkin_ws/devel/lib/task2/subscriber: /opt/ros/melodic/lib/libroscpp.so
 /home/anifan/rmua/catkin_ws/devel/lib/task2/subscriber: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
+/home/anifan/rmua/catkin_ws/devel/lib/task2/subscriber: /opt/ros/melodic/lib/libxmlrpcpp.so
+/home/anifan/rmua/catkin_ws/devel/lib/task2/subscriber: /opt/ros/melodic/lib/libcv_bridge.so
+/home/anifan/rmua/catkin_ws/devel/lib/task2/subscriber: /usr/lib/x86_64-linux-gnu/libopencv_core.so.3.2.0
+/home/anifan/rmua/catkin_ws/devel/lib/task2/subscriber: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.3.2.0
+/home/anifan/rmua/catkin_ws/devel/lib/task2/subscriber: /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.2.0
 /home/anifan/rmua/catkin_ws/devel/lib/task2/subscriber: /opt/ros/melodic/lib/librosconsole.so
 /home/anifan/rmua/catkin_ws/devel/lib/task2/subscriber: /opt/ros/melodic/lib/librosconsole_log4cxx.so
 /home/anifan/rmua/catkin_ws/devel/lib/task2/subscriber: /opt/ros/melodic/lib/librosconsole_backend_interface.so
 /home/anifan/rmua/catkin_ws/devel/lib/task2/subscriber: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
 /home/anifan/rmua/catkin_ws/devel/lib/task2/subscriber: /usr/lib/x86_64-linux-gnu/libboost_regex.so
-/home/anifan/rmua/catkin_ws/devel/lib/task2/subscriber: /opt/ros/melodic/lib/libxmlrpcpp.so
 /home/anifan/rmua/catkin_ws/devel/lib/task2/subscriber: /opt/ros/melodic/lib/libroscpp_serialization.so
 /home/anifan/rmua/catkin_ws/devel/lib/task2/subscriber: /opt/ros/melodic/lib/librostime.so
 /home/anifan/rmua/catkin_ws/devel/lib/task2/subscriber: /opt/ros/melodic/lib/libcpp_common.so

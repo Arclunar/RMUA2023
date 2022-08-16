@@ -63,14 +63,16 @@ task2/CMakeFiles/task2_generate_messages_cpp: /home/anifan/rmua/catkin_ws/devel/
 /home/anifan/rmua/catkin_ws/devel/include/task2/StringStamped.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/anifan/rmua/catkin_ws/devel/include/task2/StringStamped.h: /opt/ros/melodic/share/gencpp/msg.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/anifan/rmua/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from task2/StringStamped.msg"
-	cd /home/anifan/rmua/catkin_ws/src/task2 && /home/anifan/rmua/catkin_ws/build/catkin_generated/env_cached.sh /home/anifan/anaconda3/envs/py27/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/anifan/rmua/catkin_ws/src/task2/msg/StringStamped.msg -Itask2:/home/anifan/rmua/catkin_ws/src/task2/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p task2 -o /home/anifan/rmua/catkin_ws/devel/include/task2 -e /opt/ros/melodic/share/gencpp/cmake/..
+	cd /home/anifan/rmua/catkin_ws/src/task2 && /home/anifan/rmua/catkin_ws/build/catkin_generated/env_cached.sh /home/anifan/anaconda3/envs/py27/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/anifan/rmua/catkin_ws/src/task2/msg/StringStamped.msg -Itask2:/home/anifan/rmua/catkin_ws/src/task2/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -p task2 -o /home/anifan/rmua/catkin_ws/devel/include/task2 -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/anifan/rmua/catkin_ws/devel/include/task2/hello.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/anifan/rmua/catkin_ws/devel/include/task2/hello.h: /home/anifan/rmua/catkin_ws/src/task2/srv/hello.srv
+/home/anifan/rmua/catkin_ws/devel/include/task2/hello.h: /opt/ros/melodic/share/sensor_msgs/msg/Image.msg
+/home/anifan/rmua/catkin_ws/devel/include/task2/hello.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/anifan/rmua/catkin_ws/devel/include/task2/hello.h: /opt/ros/melodic/share/gencpp/msg.h.template
 /home/anifan/rmua/catkin_ws/devel/include/task2/hello.h: /opt/ros/melodic/share/gencpp/srv.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/anifan/rmua/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from task2/hello.srv"
-	cd /home/anifan/rmua/catkin_ws/src/task2 && /home/anifan/rmua/catkin_ws/build/catkin_generated/env_cached.sh /home/anifan/anaconda3/envs/py27/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/anifan/rmua/catkin_ws/src/task2/srv/hello.srv -Itask2:/home/anifan/rmua/catkin_ws/src/task2/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p task2 -o /home/anifan/rmua/catkin_ws/devel/include/task2 -e /opt/ros/melodic/share/gencpp/cmake/..
+	cd /home/anifan/rmua/catkin_ws/src/task2 && /home/anifan/rmua/catkin_ws/build/catkin_generated/env_cached.sh /home/anifan/anaconda3/envs/py27/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/anifan/rmua/catkin_ws/src/task2/srv/hello.srv -Itask2:/home/anifan/rmua/catkin_ws/src/task2/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -p task2 -o /home/anifan/rmua/catkin_ws/devel/include/task2 -e /opt/ros/melodic/share/gencpp/cmake/..
 
 task2_generate_messages_cpp: task2/CMakeFiles/task2_generate_messages_cpp
 task2_generate_messages_cpp: /home/anifan/rmua/catkin_ws/devel/include/task2/StringStamped.h

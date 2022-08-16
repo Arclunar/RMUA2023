@@ -7,16 +7,65 @@ import genpy
 import struct
 
 import genpy
+import sensor_msgs.msg
+import std_msgs.msg
 
 class helloRequest(genpy.Message):
-  _md5sum = "f323de8e59ddbf8c268a99e3929710a3"
+  _md5sum = "e0f6f416a2af49e3daddd0d1010b6ece"
   _type = "task2/helloRequest"
   _has_header = False  # flag to mark the presence of a Header object
   _full_text = """time stamp_requset
 string request
+sensor_msgs/Image img
+
+================================================================================
+MSG: sensor_msgs/Image
+# This message contains an uncompressed image
+# (0, 0) is at top-left corner of image
+#
+
+Header header        # Header timestamp should be acquisition time of image
+                     # Header frame_id should be optical frame of camera
+                     # origin of frame should be optical center of camera
+                     # +x should point to the right in the image
+                     # +y should point down in the image
+                     # +z should point into to plane of the image
+                     # If the frame_id here and the frame_id of the CameraInfo
+                     # message associated with the image conflict
+                     # the behavior is undefined
+
+uint32 height         # image height, that is, number of rows
+uint32 width          # image width, that is, number of columns
+
+# The legal values for encoding are in file src/image_encodings.cpp
+# If you want to standardize a new string format, join
+# ros-users@lists.sourceforge.net and send an email proposing a new encoding.
+
+string encoding       # Encoding of pixels -- channel meaning, ordering, size
+                      # taken from the list of strings in include/sensor_msgs/image_encodings.h
+
+uint8 is_bigendian    # is this data bigendian?
+uint32 step           # Full row length in bytes
+uint8[] data          # actual matrix data, size is (step * rows)
+
+================================================================================
+MSG: std_msgs/Header
+# Standard metadata for higher-level stamped data types.
+# This is generally used to communicate timestamped data 
+# in a particular coordinate frame.
+# 
+# sequence ID: consecutively increasing ID 
+uint32 seq
+#Two-integer timestamp that is expressed as:
+# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')
+# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')
+# time-handling sugar is provided by the client library
+time stamp
+#Frame this data is associated with
+string frame_id
 """
-  __slots__ = ['stamp_requset','request']
-  _slot_types = ['time','string']
+  __slots__ = ['stamp_requset','request','img']
+  _slot_types = ['time','string','sensor_msgs/Image']
 
   def __init__(self, *args, **kwds):
     """
@@ -26,7 +75,7 @@ string request
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       stamp_requset,request
+       stamp_requset,request,img
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -39,9 +88,12 @@ string request
         self.stamp_requset = genpy.Time()
       if self.request is None:
         self.request = ''
+      if self.img is None:
+        self.img = sensor_msgs.msg.Image()
     else:
       self.stamp_requset = genpy.Time()
       self.request = ''
+      self.img = sensor_msgs.msg.Image()
 
   def _get_types(self):
     """
@@ -63,6 +115,31 @@ string request
         _x = _x.encode('utf-8')
         length = len(_x)
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
+      _x = self
+      buff.write(_get_struct_3I().pack(_x.img.header.seq, _x.img.header.stamp.secs, _x.img.header.stamp.nsecs))
+      _x = self.img.header.frame_id
+      length = len(_x)
+      if python3 or type(_x) == unicode:
+        _x = _x.encode('utf-8')
+        length = len(_x)
+      buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
+      _x = self
+      buff.write(_get_struct_2I().pack(_x.img.height, _x.img.width))
+      _x = self.img.encoding
+      length = len(_x)
+      if python3 or type(_x) == unicode:
+        _x = _x.encode('utf-8')
+        length = len(_x)
+      buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
+      _x = self
+      buff.write(_get_struct_BI().pack(_x.img.is_bigendian, _x.img.step))
+      _x = self.img.data
+      length = len(_x)
+      # - if encoded as a list instead, serialize as bytes instead of string
+      if type(_x) in [list, tuple]:
+        buff.write(struct.Struct('<I%sB'%length).pack(length, *_x))
+      else:
+        buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -76,6 +153,8 @@ string request
     try:
       if self.stamp_requset is None:
         self.stamp_requset = genpy.Time()
+      if self.img is None:
+        self.img = sensor_msgs.msg.Image()
       end = 0
       _x = self
       start = end
@@ -90,6 +169,42 @@ string request
         self.request = str[start:end].decode('utf-8', 'rosmsg')
       else:
         self.request = str[start:end]
+      _x = self
+      start = end
+      end += 12
+      (_x.img.header.seq, _x.img.header.stamp.secs, _x.img.header.stamp.nsecs,) = _get_struct_3I().unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      start = end
+      end += length
+      if python3:
+        self.img.header.frame_id = str[start:end].decode('utf-8', 'rosmsg')
+      else:
+        self.img.header.frame_id = str[start:end]
+      _x = self
+      start = end
+      end += 8
+      (_x.img.height, _x.img.width,) = _get_struct_2I().unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      start = end
+      end += length
+      if python3:
+        self.img.encoding = str[start:end].decode('utf-8', 'rosmsg')
+      else:
+        self.img.encoding = str[start:end]
+      _x = self
+      start = end
+      end += 5
+      (_x.img.is_bigendian, _x.img.step,) = _get_struct_BI().unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      start = end
+      end += length
+      self.img.data = str[start:end]
       self.stamp_requset.canon()
       return self
     except struct.error as e:
@@ -111,6 +226,31 @@ string request
         _x = _x.encode('utf-8')
         length = len(_x)
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
+      _x = self
+      buff.write(_get_struct_3I().pack(_x.img.header.seq, _x.img.header.stamp.secs, _x.img.header.stamp.nsecs))
+      _x = self.img.header.frame_id
+      length = len(_x)
+      if python3 or type(_x) == unicode:
+        _x = _x.encode('utf-8')
+        length = len(_x)
+      buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
+      _x = self
+      buff.write(_get_struct_2I().pack(_x.img.height, _x.img.width))
+      _x = self.img.encoding
+      length = len(_x)
+      if python3 or type(_x) == unicode:
+        _x = _x.encode('utf-8')
+        length = len(_x)
+      buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
+      _x = self
+      buff.write(_get_struct_BI().pack(_x.img.is_bigendian, _x.img.step))
+      _x = self.img.data
+      length = len(_x)
+      # - if encoded as a list instead, serialize as bytes instead of string
+      if type(_x) in [list, tuple]:
+        buff.write(struct.Struct('<I%sB'%length).pack(length, *_x))
+      else:
+        buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -125,6 +265,8 @@ string request
     try:
       if self.stamp_requset is None:
         self.stamp_requset = genpy.Time()
+      if self.img is None:
+        self.img = sensor_msgs.msg.Image()
       end = 0
       _x = self
       start = end
@@ -139,6 +281,42 @@ string request
         self.request = str[start:end].decode('utf-8', 'rosmsg')
       else:
         self.request = str[start:end]
+      _x = self
+      start = end
+      end += 12
+      (_x.img.header.seq, _x.img.header.stamp.secs, _x.img.header.stamp.nsecs,) = _get_struct_3I().unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      start = end
+      end += length
+      if python3:
+        self.img.header.frame_id = str[start:end].decode('utf-8', 'rosmsg')
+      else:
+        self.img.header.frame_id = str[start:end]
+      _x = self
+      start = end
+      end += 8
+      (_x.img.height, _x.img.width,) = _get_struct_2I().unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      start = end
+      end += length
+      if python3:
+        self.img.encoding = str[start:end].decode('utf-8', 'rosmsg')
+      else:
+        self.img.encoding = str[start:end]
+      _x = self
+      start = end
+      end += 5
+      (_x.img.is_bigendian, _x.img.step,) = _get_struct_BI().unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      start = end
+      end += length
+      self.img.data = str[start:end]
       self.stamp_requset.canon()
       return self
     except struct.error as e:
@@ -154,6 +332,18 @@ def _get_struct_2I():
     if _struct_2I is None:
         _struct_2I = struct.Struct("<2I")
     return _struct_2I
+_struct_3I = None
+def _get_struct_3I():
+    global _struct_3I
+    if _struct_3I is None:
+        _struct_3I = struct.Struct("<3I")
+    return _struct_3I
+_struct_BI = None
+def _get_struct_BI():
+    global _struct_BI
+    if _struct_BI is None:
+        _struct_BI = struct.Struct("<BI")
+    return _struct_BI
 # This Python file uses the following encoding: utf-8
 """autogenerated by genpy from task2/helloResponse.msg. Do not edit."""
 import codecs
@@ -163,16 +353,66 @@ import genpy
 import struct
 
 import genpy
+import sensor_msgs.msg
+import std_msgs.msg
 
 class helloResponse(genpy.Message):
-  _md5sum = "f351e82a09ba72557d1bb2ddee72a89f"
+  _md5sum = "cf0398511687f596674663b2fa272f87"
   _type = "task2/helloResponse"
   _has_header = False  # flag to mark the presence of a Header object
-  _full_text = """time stamp_response
+  _full_text = """time stamp_request_arrived
+time stamp_response
 string response
+sensor_msgs/Image img
+
+================================================================================
+MSG: sensor_msgs/Image
+# This message contains an uncompressed image
+# (0, 0) is at top-left corner of image
+#
+
+Header header        # Header timestamp should be acquisition time of image
+                     # Header frame_id should be optical frame of camera
+                     # origin of frame should be optical center of camera
+                     # +x should point to the right in the image
+                     # +y should point down in the image
+                     # +z should point into to plane of the image
+                     # If the frame_id here and the frame_id of the CameraInfo
+                     # message associated with the image conflict
+                     # the behavior is undefined
+
+uint32 height         # image height, that is, number of rows
+uint32 width          # image width, that is, number of columns
+
+# The legal values for encoding are in file src/image_encodings.cpp
+# If you want to standardize a new string format, join
+# ros-users@lists.sourceforge.net and send an email proposing a new encoding.
+
+string encoding       # Encoding of pixels -- channel meaning, ordering, size
+                      # taken from the list of strings in include/sensor_msgs/image_encodings.h
+
+uint8 is_bigendian    # is this data bigendian?
+uint32 step           # Full row length in bytes
+uint8[] data          # actual matrix data, size is (step * rows)
+
+================================================================================
+MSG: std_msgs/Header
+# Standard metadata for higher-level stamped data types.
+# This is generally used to communicate timestamped data 
+# in a particular coordinate frame.
+# 
+# sequence ID: consecutively increasing ID 
+uint32 seq
+#Two-integer timestamp that is expressed as:
+# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')
+# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')
+# time-handling sugar is provided by the client library
+time stamp
+#Frame this data is associated with
+string frame_id
 """
-  __slots__ = ['stamp_response','response']
-  _slot_types = ['time','string']
+  __slots__ = ['stamp_request_arrived','stamp_response','response','img']
+  _slot_types = ['time','time','string','sensor_msgs/Image']
 
   def __init__(self, *args, **kwds):
     """
@@ -182,7 +422,7 @@ string response
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       stamp_response,response
+       stamp_request_arrived,stamp_response,response,img
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -191,13 +431,19 @@ string response
     if args or kwds:
       super(helloResponse, self).__init__(*args, **kwds)
       # message fields cannot be None, assign default values for those that are
+      if self.stamp_request_arrived is None:
+        self.stamp_request_arrived = genpy.Time()
       if self.stamp_response is None:
         self.stamp_response = genpy.Time()
       if self.response is None:
         self.response = ''
+      if self.img is None:
+        self.img = sensor_msgs.msg.Image()
     else:
+      self.stamp_request_arrived = genpy.Time()
       self.stamp_response = genpy.Time()
       self.response = ''
+      self.img = sensor_msgs.msg.Image()
 
   def _get_types(self):
     """
@@ -212,13 +458,38 @@ string response
     """
     try:
       _x = self
-      buff.write(_get_struct_2I().pack(_x.stamp_response.secs, _x.stamp_response.nsecs))
+      buff.write(_get_struct_4I().pack(_x.stamp_request_arrived.secs, _x.stamp_request_arrived.nsecs, _x.stamp_response.secs, _x.stamp_response.nsecs))
       _x = self.response
       length = len(_x)
       if python3 or type(_x) == unicode:
         _x = _x.encode('utf-8')
         length = len(_x)
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
+      _x = self
+      buff.write(_get_struct_3I().pack(_x.img.header.seq, _x.img.header.stamp.secs, _x.img.header.stamp.nsecs))
+      _x = self.img.header.frame_id
+      length = len(_x)
+      if python3 or type(_x) == unicode:
+        _x = _x.encode('utf-8')
+        length = len(_x)
+      buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
+      _x = self
+      buff.write(_get_struct_2I().pack(_x.img.height, _x.img.width))
+      _x = self.img.encoding
+      length = len(_x)
+      if python3 or type(_x) == unicode:
+        _x = _x.encode('utf-8')
+        length = len(_x)
+      buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
+      _x = self
+      buff.write(_get_struct_BI().pack(_x.img.is_bigendian, _x.img.step))
+      _x = self.img.data
+      length = len(_x)
+      # - if encoded as a list instead, serialize as bytes instead of string
+      if type(_x) in [list, tuple]:
+        buff.write(struct.Struct('<I%sB'%length).pack(length, *_x))
+      else:
+        buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -230,13 +501,17 @@ string response
     if python3:
       codecs.lookup_error("rosmsg").msg_type = self._type
     try:
+      if self.stamp_request_arrived is None:
+        self.stamp_request_arrived = genpy.Time()
       if self.stamp_response is None:
         self.stamp_response = genpy.Time()
+      if self.img is None:
+        self.img = sensor_msgs.msg.Image()
       end = 0
       _x = self
       start = end
-      end += 8
-      (_x.stamp_response.secs, _x.stamp_response.nsecs,) = _get_struct_2I().unpack(str[start:end])
+      end += 16
+      (_x.stamp_request_arrived.secs, _x.stamp_request_arrived.nsecs, _x.stamp_response.secs, _x.stamp_response.nsecs,) = _get_struct_4I().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -246,6 +521,43 @@ string response
         self.response = str[start:end].decode('utf-8', 'rosmsg')
       else:
         self.response = str[start:end]
+      _x = self
+      start = end
+      end += 12
+      (_x.img.header.seq, _x.img.header.stamp.secs, _x.img.header.stamp.nsecs,) = _get_struct_3I().unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      start = end
+      end += length
+      if python3:
+        self.img.header.frame_id = str[start:end].decode('utf-8', 'rosmsg')
+      else:
+        self.img.header.frame_id = str[start:end]
+      _x = self
+      start = end
+      end += 8
+      (_x.img.height, _x.img.width,) = _get_struct_2I().unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      start = end
+      end += length
+      if python3:
+        self.img.encoding = str[start:end].decode('utf-8', 'rosmsg')
+      else:
+        self.img.encoding = str[start:end]
+      _x = self
+      start = end
+      end += 5
+      (_x.img.is_bigendian, _x.img.step,) = _get_struct_BI().unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      start = end
+      end += length
+      self.img.data = str[start:end]
+      self.stamp_request_arrived.canon()
       self.stamp_response.canon()
       return self
     except struct.error as e:
@@ -260,13 +572,38 @@ string response
     """
     try:
       _x = self
-      buff.write(_get_struct_2I().pack(_x.stamp_response.secs, _x.stamp_response.nsecs))
+      buff.write(_get_struct_4I().pack(_x.stamp_request_arrived.secs, _x.stamp_request_arrived.nsecs, _x.stamp_response.secs, _x.stamp_response.nsecs))
       _x = self.response
       length = len(_x)
       if python3 or type(_x) == unicode:
         _x = _x.encode('utf-8')
         length = len(_x)
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
+      _x = self
+      buff.write(_get_struct_3I().pack(_x.img.header.seq, _x.img.header.stamp.secs, _x.img.header.stamp.nsecs))
+      _x = self.img.header.frame_id
+      length = len(_x)
+      if python3 or type(_x) == unicode:
+        _x = _x.encode('utf-8')
+        length = len(_x)
+      buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
+      _x = self
+      buff.write(_get_struct_2I().pack(_x.img.height, _x.img.width))
+      _x = self.img.encoding
+      length = len(_x)
+      if python3 or type(_x) == unicode:
+        _x = _x.encode('utf-8')
+        length = len(_x)
+      buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
+      _x = self
+      buff.write(_get_struct_BI().pack(_x.img.is_bigendian, _x.img.step))
+      _x = self.img.data
+      length = len(_x)
+      # - if encoded as a list instead, serialize as bytes instead of string
+      if type(_x) in [list, tuple]:
+        buff.write(struct.Struct('<I%sB'%length).pack(length, *_x))
+      else:
+        buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -279,13 +616,17 @@ string response
     if python3:
       codecs.lookup_error("rosmsg").msg_type = self._type
     try:
+      if self.stamp_request_arrived is None:
+        self.stamp_request_arrived = genpy.Time()
       if self.stamp_response is None:
         self.stamp_response = genpy.Time()
+      if self.img is None:
+        self.img = sensor_msgs.msg.Image()
       end = 0
       _x = self
       start = end
-      end += 8
-      (_x.stamp_response.secs, _x.stamp_response.nsecs,) = _get_struct_2I().unpack(str[start:end])
+      end += 16
+      (_x.stamp_request_arrived.secs, _x.stamp_request_arrived.nsecs, _x.stamp_response.secs, _x.stamp_response.nsecs,) = _get_struct_4I().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -295,6 +636,43 @@ string response
         self.response = str[start:end].decode('utf-8', 'rosmsg')
       else:
         self.response = str[start:end]
+      _x = self
+      start = end
+      end += 12
+      (_x.img.header.seq, _x.img.header.stamp.secs, _x.img.header.stamp.nsecs,) = _get_struct_3I().unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      start = end
+      end += length
+      if python3:
+        self.img.header.frame_id = str[start:end].decode('utf-8', 'rosmsg')
+      else:
+        self.img.header.frame_id = str[start:end]
+      _x = self
+      start = end
+      end += 8
+      (_x.img.height, _x.img.width,) = _get_struct_2I().unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      start = end
+      end += length
+      if python3:
+        self.img.encoding = str[start:end].decode('utf-8', 'rosmsg')
+      else:
+        self.img.encoding = str[start:end]
+      _x = self
+      start = end
+      end += 5
+      (_x.img.is_bigendian, _x.img.step,) = _get_struct_BI().unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      start = end
+      end += length
+      self.img.data = str[start:end]
+      self.stamp_request_arrived.canon()
       self.stamp_response.canon()
       return self
     except struct.error as e:
@@ -310,8 +688,26 @@ def _get_struct_2I():
     if _struct_2I is None:
         _struct_2I = struct.Struct("<2I")
     return _struct_2I
+_struct_3I = None
+def _get_struct_3I():
+    global _struct_3I
+    if _struct_3I is None:
+        _struct_3I = struct.Struct("<3I")
+    return _struct_3I
+_struct_4I = None
+def _get_struct_4I():
+    global _struct_4I
+    if _struct_4I is None:
+        _struct_4I = struct.Struct("<4I")
+    return _struct_4I
+_struct_BI = None
+def _get_struct_BI():
+    global _struct_BI
+    if _struct_BI is None:
+        _struct_BI = struct.Struct("<BI")
+    return _struct_BI
 class hello(object):
   _type          = 'task2/hello'
-  _md5sum = '13d47c285aebc1aeac46ba71c9ef38b6'
+  _md5sum = '1d267952d5d13e898b2e45c1c34041f3'
   _request_class  = helloRequest
   _response_class = helloResponse

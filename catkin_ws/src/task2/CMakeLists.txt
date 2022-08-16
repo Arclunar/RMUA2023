@@ -11,8 +11,15 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  cv_bridge
   message_generation
+  geometry_msgs
+  sensor_msgs
 )
+
+find_package(OpenCV REQUIRED)
+# MESSAGE("OPENCV VERSION:")
+# MESSAGE(${OpenCV_VERSION})
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -85,6 +92,8 @@ add_service_files(
 generate_messages(
   DEPENDENCIES
   std_msgs
+  sensor_msgs
+  geometry_msgs
 )
 
 ################################################
@@ -118,8 +127,8 @@ generate_messages(
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES task2
- CATKIN_DEPENDS roscpp rospy std_msgs message_runtime
+ LIBRARIES task2
+ CATKIN_DEPENDS roscpp rospy std_msgs message_runtime sensor_msgs 
 #  DEPENDS system_lib
 )
 
@@ -130,7 +139,7 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
+  include
   ${catkin_INCLUDE_DIRS}
 )
 
@@ -166,50 +175,35 @@ include_directories(
 
 
 
-add_executable(publisher
-  src/publisher.cpp
-)
+add_executable(publisher src/publisher.cpp)
 
 add_dependencies(publisher ${PROJECT_NAME}_generate_messages_cpp)
 
+target_link_libraries(publisher ${catkin_LIBRARIES} )
 
-target_link_libraries(publisher
-  ${catkin_LIBRARIES}
-)
-
-add_executable(subscriber
-  src/subscriber.cpp
-)
+add_executable(subscriber src/subscriber.cpp )
 
 add_dependencies(subscriber ${PROJECT_NAME}_generate_messages_cpp)
 
-target_link_libraries(subscriber
-  ${catkin_LIBRARIES}
-)
+target_link_libraries(subscriber ${catkin_LIBRARIES})
 
-add_executable(server
-  src/server
-)
-add_dependencies(server
-  ${PROJECT_NAME}_gencpp
-)
+add_executable(server src/server)
 
-
+add_dependencies(server ${PROJECT_NAME}_gencpp)
 
 target_link_libraries(server
   ${catkin_LIBRARIES}  
+  ${OpenCV_LIBS}
 )
 
-add_executable(client
-  src/client
-)
+add_executable(client src/client)
 
-add_dependencies(client
-  ${PROJECT_NAME}_gencpp
-)
+add_dependencies(client ${PROJECT_NAME}_gencpp)
 
 target_link_libraries(client
   ${catkin_LIBRARIES}  
+  ${OpenCV_LIBS}
+
 )
 #############
 ## Install ##

@@ -1,6 +1,8 @@
 time stamp_requset
 string request
+sensor_msgs/Image img
 ---
 time stamp_request_arrived
 time stamp_response
 string response
+sensor_msgs/Image img

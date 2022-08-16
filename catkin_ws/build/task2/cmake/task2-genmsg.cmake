@@ -2,7 +2,7 @@
 
 message(STATUS "task2: 1 messages, 1 services")
 
-set(MSG_I_FLAGS "-Itask2:/home/anifan/rmua/catkin_ws/src/task2/msg;-Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg")
+set(MSG_I_FLAGS "-Itask2:/home/anifan/rmua/catkin_ws/src/task2/msg;-Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg;-Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg")
 
 # Find all generators
 find_package(gencpp REQUIRED)
@@ -24,7 +24,7 @@ add_custom_target(_task2_generate_messages_check_deps_${_filename}
 
 get_filename_component(_filename "/home/anifan/rmua/catkin_ws/src/task2/srv/hello.srv" NAME_WE)
 add_custom_target(_task2_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "task2" "/home/anifan/rmua/catkin_ws/src/task2/srv/hello.srv" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "task2" "/home/anifan/rmua/catkin_ws/src/task2/srv/hello.srv" "sensor_msgs/Image:std_msgs/Header"
 )
 
 #
@@ -44,7 +44,7 @@ _generate_msg_cpp(task2
 _generate_srv_cpp(task2
   "/home/anifan/rmua/catkin_ws/src/task2/srv/hello.srv"
   "${MSG_I_FLAGS}"
-  ""
+  "/opt/ros/melodic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/task2
 )
 
@@ -85,7 +85,7 @@ _generate_msg_eus(task2
 _generate_srv_eus(task2
   "/home/anifan/rmua/catkin_ws/src/task2/srv/hello.srv"
   "${MSG_I_FLAGS}"
-  ""
+  "/opt/ros/melodic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/task2
 )
 
@@ -126,7 +126,7 @@ _generate_msg_lisp(task2
 _generate_srv_lisp(task2
   "/home/anifan/rmua/catkin_ws/src/task2/srv/hello.srv"
   "${MSG_I_FLAGS}"
-  ""
+  "/opt/ros/melodic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/task2
 )
 
@@ -167,7 +167,7 @@ _generate_msg_nodejs(task2
 _generate_srv_nodejs(task2
   "/home/anifan/rmua/catkin_ws/src/task2/srv/hello.srv"
   "${MSG_I_FLAGS}"
-  ""
+  "/opt/ros/melodic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/task2
 )
 
@@ -208,7 +208,7 @@ _generate_msg_py(task2
 _generate_srv_py(task2
   "/home/anifan/rmua/catkin_ws/src/task2/srv/hello.srv"
   "${MSG_I_FLAGS}"
-  ""
+  "/opt/ros/melodic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/task2
 )
 
@@ -248,6 +248,12 @@ endif()
 if(TARGET std_msgs_generate_messages_cpp)
   add_dependencies(task2_generate_messages_cpp std_msgs_generate_messages_cpp)
 endif()
+if(TARGET sensor_msgs_generate_messages_cpp)
+  add_dependencies(task2_generate_messages_cpp sensor_msgs_generate_messages_cpp)
+endif()
+if(TARGET geometry_msgs_generate_messages_cpp)
+  add_dependencies(task2_generate_messages_cpp geometry_msgs_generate_messages_cpp)
+endif()
 
 if(geneus_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/task2)
   # install generated code
@@ -258,6 +264,12 @@ if(geneus_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/ta
 endif()
 if(TARGET std_msgs_generate_messages_eus)
   add_dependencies(task2_generate_messages_eus std_msgs_generate_messages_eus)
+endif()
+if(TARGET sensor_msgs_generate_messages_eus)
+  add_dependencies(task2_generate_messages_eus sensor_msgs_generate_messages_eus)
+endif()
+if(TARGET geometry_msgs_generate_messages_eus)
+  add_dependencies(task2_generate_messages_eus geometry_msgs_generate_messages_eus)
 endif()
 
 if(genlisp_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/task2)
@@ -270,6 +282,12 @@ endif()
 if(TARGET std_msgs_generate_messages_lisp)
   add_dependencies(task2_generate_messages_lisp std_msgs_generate_messages_lisp)
 endif()
+if(TARGET sensor_msgs_generate_messages_lisp)
+  add_dependencies(task2_generate_messages_lisp sensor_msgs_generate_messages_lisp)
+endif()
+if(TARGET geometry_msgs_generate_messages_lisp)
+  add_dependencies(task2_generate_messages_lisp geometry_msgs_generate_messages_lisp)
+endif()
 
 if(gennodejs_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/task2)
   # install generated code
@@ -280,6 +298,12 @@ if(gennodejs_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_D
 endif()
 if(TARGET std_msgs_generate_messages_nodejs)
   add_dependencies(task2_generate_messages_nodejs std_msgs_generate_messages_nodejs)
+endif()
+if(TARGET sensor_msgs_generate_messages_nodejs)
+  add_dependencies(task2_generate_messages_nodejs sensor_msgs_generate_messages_nodejs)
+endif()
+if(TARGET geometry_msgs_generate_messages_nodejs)
+  add_dependencies(task2_generate_messages_nodejs geometry_msgs_generate_messages_nodejs)
 endif()
 
 if(genpy_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/task2)
@@ -292,4 +316,10 @@ if(genpy_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/task
 endif()
 if(TARGET std_msgs_generate_messages_py)
   add_dependencies(task2_generate_messages_py std_msgs_generate_messages_py)
+endif()
+if(TARGET sensor_msgs_generate_messages_py)
+  add_dependencies(task2_generate_messages_py sensor_msgs_generate_messages_py)
+endif()
+if(TARGET geometry_msgs_generate_messages_py)
+  add_dependencies(task2_generate_messages_py geometry_msgs_generate_messages_py)
 endif()

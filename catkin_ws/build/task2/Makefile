@@ -56,6 +56,61 @@ CMAKE_BINARY_DIR = /home/anifan/rmua/catkin_ws/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -79,61 +134,6 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,289 +168,49 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-task2/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-.PHONY : task2/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
+task2/CMakeFiles/task2_generate_messages_eus.dir/rule:
+	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/task2_generate_messages_eus.dir/rule
+.PHONY : task2/CMakeFiles/task2_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-std_msgs_generate_messages_nodejs: task2/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
+task2_generate_messages_eus: task2/CMakeFiles/task2_generate_messages_eus.dir/rule
 
-.PHONY : std_msgs_generate_messages_nodejs
+.PHONY : task2_generate_messages_eus
 
 # fast build rule for target.
-std_msgs_generate_messages_nodejs/fast:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make task2/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
-.PHONY : std_msgs_generate_messages_nodejs/fast
+task2_generate_messages_eus/fast:
+	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/task2_generate_messages_eus.dir/build.make task2/CMakeFiles/task2_generate_messages_eus.dir/build
+.PHONY : task2_generate_messages_eus/fast
 
 # Convenience name for target.
-task2/CMakeFiles/task2_generate_messages_nodejs.dir/rule:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/task2_generate_messages_nodejs.dir/rule
-.PHONY : task2/CMakeFiles/task2_generate_messages_nodejs.dir/rule
+task2/CMakeFiles/task2_generate_messages.dir/rule:
+	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/task2_generate_messages.dir/rule
+.PHONY : task2/CMakeFiles/task2_generate_messages.dir/rule
 
 # Convenience name for target.
-task2_generate_messages_nodejs: task2/CMakeFiles/task2_generate_messages_nodejs.dir/rule
+task2_generate_messages: task2/CMakeFiles/task2_generate_messages.dir/rule
 
-.PHONY : task2_generate_messages_nodejs
+.PHONY : task2_generate_messages
 
 # fast build rule for target.
-task2_generate_messages_nodejs/fast:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/task2_generate_messages_nodejs.dir/build.make task2/CMakeFiles/task2_generate_messages_nodejs.dir/build
-.PHONY : task2_generate_messages_nodejs/fast
+task2_generate_messages/fast:
+	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/task2_generate_messages.dir/build.make task2/CMakeFiles/task2_generate_messages.dir/build
+.PHONY : task2_generate_messages/fast
 
 # Convenience name for target.
-task2/CMakeFiles/publisher.dir/rule:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/publisher.dir/rule
-.PHONY : task2/CMakeFiles/publisher.dir/rule
+task2/CMakeFiles/_task2_generate_messages_check_deps_hello.dir/rule:
+	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/_task2_generate_messages_check_deps_hello.dir/rule
+.PHONY : task2/CMakeFiles/_task2_generate_messages_check_deps_hello.dir/rule
 
 # Convenience name for target.
-publisher: task2/CMakeFiles/publisher.dir/rule
+_task2_generate_messages_check_deps_hello: task2/CMakeFiles/_task2_generate_messages_check_deps_hello.dir/rule
 
-.PHONY : publisher
+.PHONY : _task2_generate_messages_check_deps_hello
 
 # fast build rule for target.
-publisher/fast:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/publisher.dir/build.make task2/CMakeFiles/publisher.dir/build
-.PHONY : publisher/fast
-
-# Convenience name for target.
-task2/CMakeFiles/std_msgs_generate_messages_eus.dir/rule:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-.PHONY : task2/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_eus: task2/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-
-.PHONY : std_msgs_generate_messages_eus
-
-# fast build rule for target.
-std_msgs_generate_messages_eus/fast:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make task2/CMakeFiles/std_msgs_generate_messages_eus.dir/build
-.PHONY : std_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-task2/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-.PHONY : task2/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_nodejs: task2/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_nodejs/fast:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make task2/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
-.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-task2/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-.PHONY : task2/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_cpp: task2/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : std_msgs_generate_messages_cpp
-
-# fast build rule for target.
-std_msgs_generate_messages_cpp/fast:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make task2/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
-.PHONY : std_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-task2/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-.PHONY : task2/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_lisp: task2/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_lisp
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_lisp/fast:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make task2/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-task2/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-.PHONY : task2/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_eus: task2/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_eus
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_eus/fast:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make task2/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
-.PHONY : rosgraph_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-task2/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
-.PHONY : task2/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_py: task2/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_py
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_py/fast:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make task2/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
-.PHONY : rosgraph_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-task2/CMakeFiles/task2_genpy.dir/rule:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/task2_genpy.dir/rule
-.PHONY : task2/CMakeFiles/task2_genpy.dir/rule
-
-# Convenience name for target.
-task2_genpy: task2/CMakeFiles/task2_genpy.dir/rule
-
-.PHONY : task2_genpy
-
-# fast build rule for target.
-task2_genpy/fast:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/task2_genpy.dir/build.make task2/CMakeFiles/task2_genpy.dir/build
-.PHONY : task2_genpy/fast
-
-# Convenience name for target.
-task2/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-.PHONY : task2/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_lisp: task2/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : std_msgs_generate_messages_lisp
-
-# fast build rule for target.
-std_msgs_generate_messages_lisp/fast:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make task2/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
-.PHONY : std_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-task2/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-.PHONY : task2/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_cpp: task2/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_cpp
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_cpp/fast:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make task2/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-task2/CMakeFiles/roscpp_generate_messages_lisp.dir/rule:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-.PHONY : task2/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_lisp: task2/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-
-.PHONY : roscpp_generate_messages_lisp
-
-# fast build rule for target.
-roscpp_generate_messages_lisp/fast:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make task2/CMakeFiles/roscpp_generate_messages_lisp.dir/build
-.PHONY : roscpp_generate_messages_lisp/fast
-
-# Convenience name for target.
-task2/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-.PHONY : task2/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_nodejs: task2/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-
-.PHONY : roscpp_generate_messages_nodejs
-
-# fast build rule for target.
-roscpp_generate_messages_nodejs/fast:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make task2/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
-.PHONY : roscpp_generate_messages_nodejs/fast
-
-# Convenience name for target.
-task2/CMakeFiles/roscpp_generate_messages_eus.dir/rule:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-.PHONY : task2/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_eus: task2/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-
-.PHONY : roscpp_generate_messages_eus
-
-# fast build rule for target.
-roscpp_generate_messages_eus/fast:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/roscpp_generate_messages_eus.dir/build.make task2/CMakeFiles/roscpp_generate_messages_eus.dir/build
-.PHONY : roscpp_generate_messages_eus/fast
-
-# Convenience name for target.
-task2/CMakeFiles/roscpp_generate_messages_py.dir/rule:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/roscpp_generate_messages_py.dir/rule
-.PHONY : task2/CMakeFiles/roscpp_generate_messages_py.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_py: task2/CMakeFiles/roscpp_generate_messages_py.dir/rule
-
-.PHONY : roscpp_generate_messages_py
-
-# fast build rule for target.
-roscpp_generate_messages_py/fast:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/roscpp_generate_messages_py.dir/build.make task2/CMakeFiles/roscpp_generate_messages_py.dir/build
-.PHONY : roscpp_generate_messages_py/fast
-
-# Convenience name for target.
-task2/CMakeFiles/_task2_generate_messages_check_deps_StringStamped.dir/rule:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/_task2_generate_messages_check_deps_StringStamped.dir/rule
-.PHONY : task2/CMakeFiles/_task2_generate_messages_check_deps_StringStamped.dir/rule
-
-# Convenience name for target.
-_task2_generate_messages_check_deps_StringStamped: task2/CMakeFiles/_task2_generate_messages_check_deps_StringStamped.dir/rule
-
-.PHONY : _task2_generate_messages_check_deps_StringStamped
-
-# fast build rule for target.
-_task2_generate_messages_check_deps_StringStamped/fast:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/_task2_generate_messages_check_deps_StringStamped.dir/build.make task2/CMakeFiles/_task2_generate_messages_check_deps_StringStamped.dir/build
-.PHONY : _task2_generate_messages_check_deps_StringStamped/fast
-
-# Convenience name for target.
-task2/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-.PHONY : task2/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_py: task2/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-
-.PHONY : std_msgs_generate_messages_py
-
-# fast build rule for target.
-std_msgs_generate_messages_py/fast:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/std_msgs_generate_messages_py.dir/build.make task2/CMakeFiles/std_msgs_generate_messages_py.dir/build
-.PHONY : std_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-task2/CMakeFiles/subscriber.dir/rule:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/subscriber.dir/rule
-.PHONY : task2/CMakeFiles/subscriber.dir/rule
-
-# Convenience name for target.
-subscriber: task2/CMakeFiles/subscriber.dir/rule
-
-.PHONY : subscriber
-
-# fast build rule for target.
-subscriber/fast:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/subscriber.dir/build.make task2/CMakeFiles/subscriber.dir/build
-.PHONY : subscriber/fast
+_task2_generate_messages_check_deps_hello/fast:
+	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/_task2_generate_messages_check_deps_hello.dir/build.make task2/CMakeFiles/_task2_generate_messages_check_deps_hello.dir/build
+.PHONY : _task2_generate_messages_check_deps_hello/fast
 
 # Convenience name for target.
 task2/CMakeFiles/task2_generate_messages_cpp.dir/rule:
@@ -466,6 +226,66 @@ task2_generate_messages_cpp: task2/CMakeFiles/task2_generate_messages_cpp.dir/ru
 task2_generate_messages_cpp/fast:
 	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/task2_generate_messages_cpp.dir/build.make task2/CMakeFiles/task2_generate_messages_cpp.dir/build
 .PHONY : task2_generate_messages_cpp/fast
+
+# Convenience name for target.
+task2/CMakeFiles/client.dir/rule:
+	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/client.dir/rule
+.PHONY : task2/CMakeFiles/client.dir/rule
+
+# Convenience name for target.
+client: task2/CMakeFiles/client.dir/rule
+
+.PHONY : client
+
+# fast build rule for target.
+client/fast:
+	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/client.dir/build.make task2/CMakeFiles/client.dir/build
+.PHONY : client/fast
+
+# Convenience name for target.
+task2/CMakeFiles/task2_genlisp.dir/rule:
+	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/task2_genlisp.dir/rule
+.PHONY : task2/CMakeFiles/task2_genlisp.dir/rule
+
+# Convenience name for target.
+task2_genlisp: task2/CMakeFiles/task2_genlisp.dir/rule
+
+.PHONY : task2_genlisp
+
+# fast build rule for target.
+task2_genlisp/fast:
+	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/task2_genlisp.dir/build.make task2/CMakeFiles/task2_genlisp.dir/build
+.PHONY : task2_genlisp/fast
+
+# Convenience name for target.
+task2/CMakeFiles/task2_geneus.dir/rule:
+	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/task2_geneus.dir/rule
+.PHONY : task2/CMakeFiles/task2_geneus.dir/rule
+
+# Convenience name for target.
+task2_geneus: task2/CMakeFiles/task2_geneus.dir/rule
+
+.PHONY : task2_geneus
+
+# fast build rule for target.
+task2_geneus/fast:
+	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/task2_geneus.dir/build.make task2/CMakeFiles/task2_geneus.dir/build
+.PHONY : task2_geneus/fast
+
+# Convenience name for target.
+task2/CMakeFiles/task2_generate_messages_lisp.dir/rule:
+	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/task2_generate_messages_lisp.dir/rule
+.PHONY : task2/CMakeFiles/task2_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+task2_generate_messages_lisp: task2/CMakeFiles/task2_generate_messages_lisp.dir/rule
+
+.PHONY : task2_generate_messages_lisp
+
+# fast build rule for target.
+task2_generate_messages_lisp/fast:
+	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/task2_generate_messages_lisp.dir/build.make task2/CMakeFiles/task2_generate_messages_lisp.dir/build
+.PHONY : task2_generate_messages_lisp/fast
 
 # Convenience name for target.
 task2/CMakeFiles/task2_gencpp.dir/rule:
@@ -513,109 +333,79 @@ task2_generate_messages_py/fast:
 .PHONY : task2_generate_messages_py/fast
 
 # Convenience name for target.
-task2/CMakeFiles/task2_generate_messages.dir/rule:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/task2_generate_messages.dir/rule
-.PHONY : task2/CMakeFiles/task2_generate_messages.dir/rule
+task2/CMakeFiles/task2_genpy.dir/rule:
+	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/task2_genpy.dir/rule
+.PHONY : task2/CMakeFiles/task2_genpy.dir/rule
 
 # Convenience name for target.
-task2_generate_messages: task2/CMakeFiles/task2_generate_messages.dir/rule
+task2_genpy: task2/CMakeFiles/task2_genpy.dir/rule
 
-.PHONY : task2_generate_messages
+.PHONY : task2_genpy
 
 # fast build rule for target.
-task2_generate_messages/fast:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/task2_generate_messages.dir/build.make task2/CMakeFiles/task2_generate_messages.dir/build
-.PHONY : task2_generate_messages/fast
+task2_genpy/fast:
+	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/task2_genpy.dir/build.make task2/CMakeFiles/task2_genpy.dir/build
+.PHONY : task2_genpy/fast
 
 # Convenience name for target.
-task2/CMakeFiles/task2_generate_messages_eus.dir/rule:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/task2_generate_messages_eus.dir/rule
-.PHONY : task2/CMakeFiles/task2_generate_messages_eus.dir/rule
+task2/CMakeFiles/task2_generate_messages_nodejs.dir/rule:
+	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/task2_generate_messages_nodejs.dir/rule
+.PHONY : task2/CMakeFiles/task2_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-task2_generate_messages_eus: task2/CMakeFiles/task2_generate_messages_eus.dir/rule
+task2_generate_messages_nodejs: task2/CMakeFiles/task2_generate_messages_nodejs.dir/rule
 
-.PHONY : task2_generate_messages_eus
+.PHONY : task2_generate_messages_nodejs
 
 # fast build rule for target.
-task2_generate_messages_eus/fast:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/task2_generate_messages_eus.dir/build.make task2/CMakeFiles/task2_generate_messages_eus.dir/build
-.PHONY : task2_generate_messages_eus/fast
+task2_generate_messages_nodejs/fast:
+	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/task2_generate_messages_nodejs.dir/build.make task2/CMakeFiles/task2_generate_messages_nodejs.dir/build
+.PHONY : task2_generate_messages_nodejs/fast
 
 # Convenience name for target.
-task2/CMakeFiles/task2_geneus.dir/rule:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/task2_geneus.dir/rule
-.PHONY : task2/CMakeFiles/task2_geneus.dir/rule
+task2/CMakeFiles/publisher.dir/rule:
+	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/publisher.dir/rule
+.PHONY : task2/CMakeFiles/publisher.dir/rule
 
 # Convenience name for target.
-task2_geneus: task2/CMakeFiles/task2_geneus.dir/rule
+publisher: task2/CMakeFiles/publisher.dir/rule
 
-.PHONY : task2_geneus
+.PHONY : publisher
 
 # fast build rule for target.
-task2_geneus/fast:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/task2_geneus.dir/build.make task2/CMakeFiles/task2_geneus.dir/build
-.PHONY : task2_geneus/fast
+publisher/fast:
+	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/publisher.dir/build.make task2/CMakeFiles/publisher.dir/build
+.PHONY : publisher/fast
 
 # Convenience name for target.
-task2/CMakeFiles/_task2_generate_messages_check_deps_hello.dir/rule:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/_task2_generate_messages_check_deps_hello.dir/rule
-.PHONY : task2/CMakeFiles/_task2_generate_messages_check_deps_hello.dir/rule
+task2/CMakeFiles/_task2_generate_messages_check_deps_StringStamped.dir/rule:
+	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/_task2_generate_messages_check_deps_StringStamped.dir/rule
+.PHONY : task2/CMakeFiles/_task2_generate_messages_check_deps_StringStamped.dir/rule
 
 # Convenience name for target.
-_task2_generate_messages_check_deps_hello: task2/CMakeFiles/_task2_generate_messages_check_deps_hello.dir/rule
+_task2_generate_messages_check_deps_StringStamped: task2/CMakeFiles/_task2_generate_messages_check_deps_StringStamped.dir/rule
 
-.PHONY : _task2_generate_messages_check_deps_hello
+.PHONY : _task2_generate_messages_check_deps_StringStamped
 
 # fast build rule for target.
-_task2_generate_messages_check_deps_hello/fast:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/_task2_generate_messages_check_deps_hello.dir/build.make task2/CMakeFiles/_task2_generate_messages_check_deps_hello.dir/build
-.PHONY : _task2_generate_messages_check_deps_hello/fast
+_task2_generate_messages_check_deps_StringStamped/fast:
+	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/_task2_generate_messages_check_deps_StringStamped.dir/build.make task2/CMakeFiles/_task2_generate_messages_check_deps_StringStamped.dir/build
+.PHONY : _task2_generate_messages_check_deps_StringStamped/fast
 
 # Convenience name for target.
-task2/CMakeFiles/task2_generate_messages_lisp.dir/rule:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/task2_generate_messages_lisp.dir/rule
-.PHONY : task2/CMakeFiles/task2_generate_messages_lisp.dir/rule
+task2/CMakeFiles/subscriber.dir/rule:
+	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/subscriber.dir/rule
+.PHONY : task2/CMakeFiles/subscriber.dir/rule
 
 # Convenience name for target.
-task2_generate_messages_lisp: task2/CMakeFiles/task2_generate_messages_lisp.dir/rule
+subscriber: task2/CMakeFiles/subscriber.dir/rule
 
-.PHONY : task2_generate_messages_lisp
+.PHONY : subscriber
 
 # fast build rule for target.
-task2_generate_messages_lisp/fast:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/task2_generate_messages_lisp.dir/build.make task2/CMakeFiles/task2_generate_messages_lisp.dir/build
-.PHONY : task2_generate_messages_lisp/fast
-
-# Convenience name for target.
-task2/CMakeFiles/task2_genlisp.dir/rule:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/task2_genlisp.dir/rule
-.PHONY : task2/CMakeFiles/task2_genlisp.dir/rule
-
-# Convenience name for target.
-task2_genlisp: task2/CMakeFiles/task2_genlisp.dir/rule
-
-.PHONY : task2_genlisp
-
-# fast build rule for target.
-task2_genlisp/fast:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/task2_genlisp.dir/build.make task2/CMakeFiles/task2_genlisp.dir/build
-.PHONY : task2_genlisp/fast
-
-# Convenience name for target.
-task2/CMakeFiles/client.dir/rule:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/client.dir/rule
-.PHONY : task2/CMakeFiles/client.dir/rule
-
-# Convenience name for target.
-client: task2/CMakeFiles/client.dir/rule
-
-.PHONY : client
-
-# fast build rule for target.
-client/fast:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/client.dir/build.make task2/CMakeFiles/client.dir/build
-.PHONY : client/fast
+subscriber/fast:
+	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/subscriber.dir/build.make task2/CMakeFiles/subscriber.dir/build
+.PHONY : subscriber/fast
 
 # Convenience name for target.
 task2/CMakeFiles/server.dir/rule:
@@ -631,21 +421,6 @@ server: task2/CMakeFiles/server.dir/rule
 server/fast:
 	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/server.dir/build.make task2/CMakeFiles/server.dir/build
 .PHONY : server/fast
-
-# Convenience name for target.
-task2/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 task2/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-.PHONY : task2/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_cpp: task2/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-
-.PHONY : roscpp_generate_messages_cpp
-
-# fast build rule for target.
-roscpp_generate_messages_cpp/fast:
-	cd /home/anifan/rmua/catkin_ws/build && $(MAKE) -f task2/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make task2/CMakeFiles/roscpp_generate_messages_cpp.dir/build
-.PHONY : roscpp_generate_messages_cpp/fast
 
 src/client.o: src/client.cpp.o
 
@@ -761,45 +536,30 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... install/local"
-	@echo "... install"
-	@echo "... std_msgs_generate_messages_nodejs"
-	@echo "... install/strip"
-	@echo "... task2_generate_messages_nodejs"
-	@echo "... publisher"
-	@echo "... std_msgs_generate_messages_eus"
-	@echo "... rosgraph_msgs_generate_messages_nodejs"
-	@echo "... std_msgs_generate_messages_cpp"
-	@echo "... rosgraph_msgs_generate_messages_lisp"
-	@echo "... rosgraph_msgs_generate_messages_eus"
-	@echo "... rosgraph_msgs_generate_messages_py"
-	@echo "... task2_genpy"
-	@echo "... std_msgs_generate_messages_lisp"
-	@echo "... rosgraph_msgs_generate_messages_cpp"
-	@echo "... roscpp_generate_messages_lisp"
+	@echo "... list_install_components"
+	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... roscpp_generate_messages_nodejs"
-	@echo "... roscpp_generate_messages_eus"
-	@echo "... roscpp_generate_messages_py"
-	@echo "... _task2_generate_messages_check_deps_StringStamped"
-	@echo "... std_msgs_generate_messages_py"
-	@echo "... subscriber"
+	@echo "... test"
+	@echo "... task2_generate_messages_eus"
+	@echo "... task2_generate_messages"
+	@echo "... install/strip"
+	@echo "... _task2_generate_messages_check_deps_hello"
 	@echo "... task2_generate_messages_cpp"
+	@echo "... client"
+	@echo "... task2_genlisp"
+	@echo "... install/local"
+	@echo "... task2_geneus"
+	@echo "... task2_generate_messages_lisp"
 	@echo "... task2_gencpp"
 	@echo "... task2_gennodejs"
 	@echo "... task2_generate_messages_py"
-	@echo "... task2_generate_messages"
-	@echo "... task2_generate_messages_eus"
-	@echo "... task2_geneus"
-	@echo "... list_install_components"
-	@echo "... _task2_generate_messages_check_deps_hello"
-	@echo "... task2_generate_messages_lisp"
-	@echo "... task2_genlisp"
-	@echo "... client"
+	@echo "... install"
+	@echo "... task2_genpy"
+	@echo "... task2_generate_messages_nodejs"
+	@echo "... publisher"
+	@echo "... _task2_generate_messages_check_deps_StringStamped"
+	@echo "... subscriber"
 	@echo "... server"
-	@echo "... test"
-	@echo "... roscpp_generate_messages_cpp"
-	@echo "... rebuild_cache"
 	@echo "... src/client.o"
 	@echo "... src/client.i"
 	@echo "... src/client.s"

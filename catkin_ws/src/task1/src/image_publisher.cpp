@@ -7,7 +7,7 @@
 
 int main(int argc,char *argv[])
 {
-    // 没有制定食品
+    // 没有指定视频
     if(argv[1]==NULL) 
     {
         ROS_INFO("no specific video?");

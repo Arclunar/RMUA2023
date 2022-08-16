@@ -1,3 +1,5 @@
-<lanuch>
-    <node pkg="task2" type="server" name="server" output="screen" />
-</lanuch>
+<launch>
+    <node pkg="task2" type="server" name="server" output="screen">
+        <param name="response" type="string" value="hi,god" />
+    </node>
+</launch>

@@ -15,6 +15,7 @@
 #include <ros/builtin_message_traits.h>
 #include <ros/message_operations.h>
 
+#include <sensor_msgs/Image.h>
 
 namespace task2
 {
@@ -24,22 +25,32 @@ struct helloResponse_
   typedef helloResponse_<ContainerAllocator> Type;
 
   helloResponse_()
-    : stamp_response()
-    , response()  {
+    : stamp_request_arrived()
+    , stamp_response()
+    , response()
+    , img()  {
     }
   helloResponse_(const ContainerAllocator& _alloc)
-    : stamp_response()
-    , response(_alloc)  {
+    : stamp_request_arrived()
+    , stamp_response()
+    , response(_alloc)
+    , img(_alloc)  {
   (void)_alloc;
     }
 
 
+
+   typedef ros::Time _stamp_request_arrived_type;
+  _stamp_request_arrived_type stamp_request_arrived;
 
    typedef ros::Time _stamp_response_type;
   _stamp_response_type stamp_response;
 
    typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _response_type;
   _response_type response;
+
+   typedef  ::sensor_msgs::Image_<ContainerAllocator>  _img_type;
+  _img_type img;
 
 
 
@@ -70,8 +81,10 @@ return s;
 template<typename ContainerAllocator1, typename ContainerAllocator2>
 bool operator==(const ::task2::helloResponse_<ContainerAllocator1> & lhs, const ::task2::helloResponse_<ContainerAllocator2> & rhs)
 {
-  return lhs.stamp_response == rhs.stamp_response &&
-    lhs.response == rhs.response;
+  return lhs.stamp_request_arrived == rhs.stamp_request_arrived &&
+    lhs.stamp_response == rhs.stamp_response &&
+    lhs.response == rhs.response &&
+    lhs.img == rhs.img;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -128,12 +141,12 @@ struct MD5Sum< ::task2::helloResponse_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "f351e82a09ba72557d1bb2ddee72a89f";
+    return "cf0398511687f596674663b2fa272f87";
   }
 
   static const char* value(const ::task2::helloResponse_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xf351e82a09ba7255ULL;
-  static const uint64_t static_value2 = 0x7d1bb2ddee72a89fULL;
+  static const uint64_t static_value1 = 0xcf0398511687f596ULL;
+  static const uint64_t static_value2 = 0x674663b2fa272f87ULL;
 };
 
 template<class ContainerAllocator>
@@ -152,8 +165,56 @@ struct Definition< ::task2::helloResponse_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "time stamp_response\n"
+    return "time stamp_request_arrived\n"
+"time stamp_response\n"
 "string response\n"
+"sensor_msgs/Image img\n"
+"\n"
+"================================================================================\n"
+"MSG: sensor_msgs/Image\n"
+"# This message contains an uncompressed image\n"
+"# (0, 0) is at top-left corner of image\n"
+"#\n"
+"\n"
+"Header header        # Header timestamp should be acquisition time of image\n"
+"                     # Header frame_id should be optical frame of camera\n"
+"                     # origin of frame should be optical center of camera\n"
+"                     # +x should point to the right in the image\n"
+"                     # +y should point down in the image\n"
+"                     # +z should point into to plane of the image\n"
+"                     # If the frame_id here and the frame_id of the CameraInfo\n"
+"                     # message associated with the image conflict\n"
+"                     # the behavior is undefined\n"
+"\n"
+"uint32 height         # image height, that is, number of rows\n"
+"uint32 width          # image width, that is, number of columns\n"
+"\n"
+"# The legal values for encoding are in file src/image_encodings.cpp\n"
+"# If you want to standardize a new string format, join\n"
+"# ros-users@lists.sourceforge.net and send an email proposing a new encoding.\n"
+"\n"
+"string encoding       # Encoding of pixels -- channel meaning, ordering, size\n"
+"                      # taken from the list of strings in include/sensor_msgs/image_encodings.h\n"
+"\n"
+"uint8 is_bigendian    # is this data bigendian?\n"
+"uint32 step           # Full row length in bytes\n"
+"uint8[] data          # actual matrix data, size is (step * rows)\n"
+"\n"
+"================================================================================\n"
+"MSG: std_msgs/Header\n"
+"# Standard metadata for higher-level stamped data types.\n"
+"# This is generally used to communicate timestamped data \n"
+"# in a particular coordinate frame.\n"
+"# \n"
+"# sequence ID: consecutively increasing ID \n"
+"uint32 seq\n"
+"#Two-integer timestamp that is expressed as:\n"
+"# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')\n"
+"# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')\n"
+"# time-handling sugar is provided by the client library\n"
+"time stamp\n"
+"#Frame this data is associated with\n"
+"string frame_id\n"
 ;
   }
 
@@ -172,8 +233,10 @@ namespace serialization
   {
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
+      stream.next(m.stamp_request_arrived);
       stream.next(m.stamp_response);
       stream.next(m.response);
+      stream.next(m.img);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -192,10 +255,15 @@ struct Printer< ::task2::helloResponse_<ContainerAllocator> >
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::task2::helloResponse_<ContainerAllocator>& v)
   {
+    s << indent << "stamp_request_arrived: ";
+    Printer<ros::Time>::stream(s, indent + "  ", v.stamp_request_arrived);
     s << indent << "stamp_response: ";
     Printer<ros::Time>::stream(s, indent + "  ", v.stamp_response);
     s << indent << "response: ";
     Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.response);
+    s << indent << "img: ";
+    s << std::endl;
+    Printer< ::sensor_msgs::Image_<ContainerAllocator> >::stream(s, indent + "  ", v.img);
   }
 };
 

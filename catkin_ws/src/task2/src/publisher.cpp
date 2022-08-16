@@ -1,6 +1,9 @@
 #include <ros/ros.h>
 #include "std_msgs/String.h"
 #include "task2/StringStamped.h"
+#include <image_transport/image_transport.h>
+#include <opencv2/highgui/highgui.hpp>
+#include <cv_bridge/cv_bridge.h>
 
 
 int main(int argc, char *argv[])

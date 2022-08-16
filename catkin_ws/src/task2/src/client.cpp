@@ -1,8 +1,22 @@
+// file name : client.cpp
+// date : 8/15/2022
+// source : ros wiki
+// editor : howard.zheng
+// description : task 2 client
+// editing history : 
+//      8/16/2022 add ros::param, service message with image attached, test the influence of msg load
+
+
 #include <ros/ros.h>
 #include "task2/hello.h"
+#include <opencv2/highgui/highgui.hpp>
+#include <cv_bridge/cv_bridge.h>
+
 
 int main(int argc, char  *argv[])
 {
+
+    ROS_INFO("client started");
     // 支持中文显示
     setlocale(LC_ALL,"");
 
@@ -12,35 +26,49 @@ int main(int argc, char  *argv[])
     // 创建句柄
     ros::NodeHandle nh;
 
-    // 订阅服务
+    //** 订阅服务
     ros::ServiceClient client = nh.serviceClient<task2::hello>("hello_service");
 
-    // 查找服务
+    //** 查找服务
     ros::service::waitForService("hello_service");
 
-    // 组装服务消息，加上字符串和时间戳
+    //** 组装服务消息
     task2::hello hello_srv;
-    hello_srv.request.request="hello,world";
-    hello_srv.request.stamp_requset=ros::Time::now();
-    
-    bool is_echo=false; // 是否打印消息
+
+    // 文本信息
+    std::string load; 
+    ros::param::get("~load",load); //从参数服务器获取传输文本
+    hello_srv.request.request=load;
+
+    // 图片信息
+    cv::Mat img;
+    img=cv::imread("/home/anifan/rmua/video_source/01.jpg");
+    sensor_msgs::ImagePtr msgImage;
+    msgImage=cv_bridge::CvImage(std_msgs::Header(),"bgr8",img).toImageMsg();
+    hello_srv.request.img=*msgImage;
+
+
+    bool is_echo=true; // 是否打印消息
+    ros::param::get("~is_echo",is_echo);
 
     int loop_times=100; // 循环发送请求次数
-    nh.param("loop_times",loop_times,100); // 从参数服务器获取循环次数，不用每次都编译了
-
+    ros::param::get("~loop_times",loop_times);  // 从参数服务器获取循环次数，不用每次都编译了
+    
     double request_delay_sum=0; // 请求总延迟时间
     double response_delay_sum=0; // 响应总延迟时间
 
 
     for(int i=0;i<loop_times;i++)
     {
-        if (is_echo) ROS_INFO("Request No.%d sent",i);
+        ROS_INFO("Request No.%d sent",i);
 
+        hello_srv.request.stamp_requset=ros::Time::now();//加上发送的时间戳
         bool flag = client.call(hello_srv); // 发送请求
 
-        if (is_echo) ROS_INFO("Response No.%d arrived",i);
+        ROS_INFO("Response No.%d arrived",i);
+        ROS_INFO("The response is \"%s\"",hello_srv.response.response.c_str());
 
-        if(flag)
+        if(flag) // 请求成功
         {
             double_t response_arrived_time=ros::Time::now().toSec();   // 请求到达时间
             double_t request_sent_time=hello_srv.request.stamp_requset.toSec();

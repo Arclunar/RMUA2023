@@ -15,6 +15,7 @@
 #include <ros/builtin_message_traits.h>
 #include <ros/message_operations.h>
 
+#include <sensor_msgs/Image.h>
 
 namespace task2
 {
@@ -25,11 +26,13 @@ struct helloRequest_
 
   helloRequest_()
     : stamp_requset()
-    , request()  {
+    , request()
+    , img()  {
     }
   helloRequest_(const ContainerAllocator& _alloc)
     : stamp_requset()
-    , request(_alloc)  {
+    , request(_alloc)
+    , img(_alloc)  {
   (void)_alloc;
     }
 
@@ -40,6 +43,9 @@ struct helloRequest_
 
    typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _request_type;
   _request_type request;
+
+   typedef  ::sensor_msgs::Image_<ContainerAllocator>  _img_type;
+  _img_type img;
 
 
 
@@ -71,7 +77,8 @@ template<typename ContainerAllocator1, typename ContainerAllocator2>
 bool operator==(const ::task2::helloRequest_<ContainerAllocator1> & lhs, const ::task2::helloRequest_<ContainerAllocator2> & rhs)
 {
   return lhs.stamp_requset == rhs.stamp_requset &&
-    lhs.request == rhs.request;
+    lhs.request == rhs.request &&
+    lhs.img == rhs.img;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -128,12 +135,12 @@ struct MD5Sum< ::task2::helloRequest_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "f323de8e59ddbf8c268a99e3929710a3";
+    return "e0f6f416a2af49e3daddd0d1010b6ece";
   }
 
   static const char* value(const ::task2::helloRequest_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xf323de8e59ddbf8cULL;
-  static const uint64_t static_value2 = 0x268a99e3929710a3ULL;
+  static const uint64_t static_value1 = 0xe0f6f416a2af49e3ULL;
+  static const uint64_t static_value2 = 0xdaddd0d1010b6eceULL;
 };
 
 template<class ContainerAllocator>
@@ -154,6 +161,53 @@ struct Definition< ::task2::helloRequest_<ContainerAllocator> >
   {
     return "time stamp_requset\n"
 "string request\n"
+"sensor_msgs/Image img\n"
+"\n"
+"================================================================================\n"
+"MSG: sensor_msgs/Image\n"
+"# This message contains an uncompressed image\n"
+"# (0, 0) is at top-left corner of image\n"
+"#\n"
+"\n"
+"Header header        # Header timestamp should be acquisition time of image\n"
+"                     # Header frame_id should be optical frame of camera\n"
+"                     # origin of frame should be optical center of camera\n"
+"                     # +x should point to the right in the image\n"
+"                     # +y should point down in the image\n"
+"                     # +z should point into to plane of the image\n"
+"                     # If the frame_id here and the frame_id of the CameraInfo\n"
+"                     # message associated with the image conflict\n"
+"                     # the behavior is undefined\n"
+"\n"
+"uint32 height         # image height, that is, number of rows\n"
+"uint32 width          # image width, that is, number of columns\n"
+"\n"
+"# The legal values for encoding are in file src/image_encodings.cpp\n"
+"# If you want to standardize a new string format, join\n"
+"# ros-users@lists.sourceforge.net and send an email proposing a new encoding.\n"
+"\n"
+"string encoding       # Encoding of pixels -- channel meaning, ordering, size\n"
+"                      # taken from the list of strings in include/sensor_msgs/image_encodings.h\n"
+"\n"
+"uint8 is_bigendian    # is this data bigendian?\n"
+"uint32 step           # Full row length in bytes\n"
+"uint8[] data          # actual matrix data, size is (step * rows)\n"
+"\n"
+"================================================================================\n"
+"MSG: std_msgs/Header\n"
+"# Standard metadata for higher-level stamped data types.\n"
+"# This is generally used to communicate timestamped data \n"
+"# in a particular coordinate frame.\n"
+"# \n"
+"# sequence ID: consecutively increasing ID \n"
+"uint32 seq\n"
+"#Two-integer timestamp that is expressed as:\n"
+"# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')\n"
+"# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')\n"
+"# time-handling sugar is provided by the client library\n"
+"time stamp\n"
+"#Frame this data is associated with\n"
+"string frame_id\n"
 ;
   }
 
@@ -174,6 +228,7 @@ namespace serialization
     {
       stream.next(m.stamp_requset);
       stream.next(m.request);
+      stream.next(m.img);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -196,6 +251,9 @@ struct Printer< ::task2::helloRequest_<ContainerAllocator> >
     Printer<ros::Time>::stream(s, indent + "  ", v.stamp_requset);
     s << indent << "request: ";
     Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.request);
+    s << indent << "img: ";
+    s << std::endl;
+    Printer< ::sensor_msgs::Image_<ContainerAllocator> >::stream(s, indent + "  ", v.img);
   }
 };
 

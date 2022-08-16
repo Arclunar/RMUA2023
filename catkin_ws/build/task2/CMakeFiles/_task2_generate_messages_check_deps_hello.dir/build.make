@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/anifan/rmua/catkin_ws/build
 include task2/CMakeFiles/_task2_generate_messages_check_deps_hello.dir/progress.make
 
 task2/CMakeFiles/_task2_generate_messages_check_deps_hello:
-	cd /home/anifan/rmua/catkin_ws/build/task2 && ../catkin_generated/env_cached.sh /home/anifan/anaconda3/envs/py27/bin/python2 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py task2 /home/anifan/rmua/catkin_ws/src/task2/srv/hello.srv 
+	cd /home/anifan/rmua/catkin_ws/build/task2 && ../catkin_generated/env_cached.sh /home/anifan/anaconda3/envs/py27/bin/python2 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py task2 /home/anifan/rmua/catkin_ws/src/task2/srv/hello.srv sensor_msgs/Image:std_msgs/Header
 
 _task2_generate_messages_check_deps_hello: task2/CMakeFiles/_task2_generate_messages_check_deps_hello
 _task2_generate_messages_check_deps_hello: task2/CMakeFiles/_task2_generate_messages_check_deps_hello.dir/build.make
