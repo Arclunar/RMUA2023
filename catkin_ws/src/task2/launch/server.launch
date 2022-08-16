@@ -1,0 +1,3 @@
+<lanuch>
+    <node pkg="task2" type="server" name="server" output="screen" />
+</lanuch>

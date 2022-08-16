@@ -1,0 +1,7 @@
+<lanuch>
+
+    <node pkg="task2" type="client" name="server" output="screen">
+        <param name="loop_times" type="int" value="200">
+    </node>
+
+</lanuch>
