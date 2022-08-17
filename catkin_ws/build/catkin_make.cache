@@ -1,2 +1,0 @@
-task1:task2:task3
--DCATKIN_DEVEL_PREFIX=/home/anifan/rmua/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/anifan/rmua/catkin_ws/install -G Unix Makefiles

@@ -1,8 +1,0 @@
-prefix=/home/anifan/rmua/catkin_ws/install
-
-Name: task3
-Description: Description of task3
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
