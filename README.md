@@ -41,7 +41,7 @@
     git clone https://github.com/Arclunar/RMUA2023.git
     cd RMUA2023
     cd catkin_ws
-    catkin_make
+    catkin_make -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=Yes
     source devel/setup.bash
 ```
 ## 运行task1
