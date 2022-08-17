@@ -27,5 +27,6 @@
 学习ros 当中的tf 坐标变换，编写程序，总共产生三只小乌龟，让每个小乌
 龟在前一个左后方 45°距离为 2  的位置，编写相应 launch 文件做到一次性启动
 所有程序。
-
-<image src="image/01.png">
+<div align="center">
+<image src="image/01.png" align="center">
+</div>
