@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/anifan/rmua/catkin_ws/build
 include task2/CMakeFiles/_task2_generate_messages_check_deps_StringStamped.dir/progress.make
 
 task2/CMakeFiles/_task2_generate_messages_check_deps_StringStamped:
-	cd /home/anifan/rmua/catkin_ws/build/task2 && ../catkin_generated/env_cached.sh /home/anifan/anaconda3/envs/py27/bin/python2 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py task2 /home/anifan/rmua/catkin_ws/src/task2/msg/StringStamped.msg std_msgs/String:std_msgs/Header
+	cd /home/anifan/rmua/catkin_ws/build/task2 && ../catkin_generated/env_cached.sh /home/anifan/anaconda3/envs/py27/bin/python2 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py task2 /home/anifan/rmua/catkin_ws/src/task2/msg/StringStamped.msg sensor_msgs/Image:std_msgs/String:std_msgs/Header
 
 _task2_generate_messages_check_deps_StringStamped: task2/CMakeFiles/_task2_generate_messages_check_deps_StringStamped
 _task2_generate_messages_check_deps_StringStamped: task2/CMakeFiles/_task2_generate_messages_check_deps_StringStamped.dir/build.make

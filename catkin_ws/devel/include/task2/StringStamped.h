@@ -15,8 +15,8 @@
 #include <ros/builtin_message_traits.h>
 #include <ros/message_operations.h>
 
-#include <std_msgs/Header.h>
 #include <std_msgs/String.h>
+#include <sensor_msgs/Image.h>
 
 namespace task2
 {
@@ -26,22 +26,27 @@ struct StringStamped_
   typedef StringStamped_<ContainerAllocator> Type;
 
   StringStamped_()
-    : header()
-    , string()  {
+    : stamp()
+    , string()
+    , img()  {
     }
   StringStamped_(const ContainerAllocator& _alloc)
-    : header(_alloc)
-    , string(_alloc)  {
+    : stamp()
+    , string(_alloc)
+    , img(_alloc)  {
   (void)_alloc;
     }
 
 
 
-   typedef  ::std_msgs::Header_<ContainerAllocator>  _header_type;
-  _header_type header;
+   typedef ros::Time _stamp_type;
+  _stamp_type stamp;
 
    typedef  ::std_msgs::String_<ContainerAllocator>  _string_type;
   _string_type string;
+
+   typedef  ::sensor_msgs::Image_<ContainerAllocator>  _img_type;
+  _img_type img;
 
 
 
@@ -72,8 +77,9 @@ return s;
 template<typename ContainerAllocator1, typename ContainerAllocator2>
 bool operator==(const ::task2::StringStamped_<ContainerAllocator1> & lhs, const ::task2::StringStamped_<ContainerAllocator2> & rhs)
 {
-  return lhs.header == rhs.header &&
-    lhs.string == rhs.string;
+  return lhs.stamp == rhs.stamp &&
+    lhs.string == rhs.string &&
+    lhs.img == rhs.img;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -116,12 +122,12 @@ struct IsMessage< ::task2::StringStamped_<ContainerAllocator> const>
 
 template <class ContainerAllocator>
 struct HasHeader< ::task2::StringStamped_<ContainerAllocator> >
-  : TrueType
+  : FalseType
   { };
 
 template <class ContainerAllocator>
 struct HasHeader< ::task2::StringStamped_<ContainerAllocator> const>
-  : TrueType
+  : FalseType
   { };
 
 
@@ -130,12 +136,12 @@ struct MD5Sum< ::task2::StringStamped_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "bd6d9ba9e57c109b2cf3ec89b7a36367";
+    return "c3d6ed81ae932a9d3d6ad84bd01b781f";
   }
 
   static const char* value(const ::task2::StringStamped_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xbd6d9ba9e57c109bULL;
-  static const uint64_t static_value2 = 0x2cf3ec89b7a36367ULL;
+  static const uint64_t static_value1 = 0xc3d6ed81ae932a9dULL;
+  static const uint64_t static_value2 = 0x3d6ad84bd01b781fULL;
 };
 
 template<class ContainerAllocator>
@@ -154,8 +160,43 @@ struct Definition< ::task2::StringStamped_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "std_msgs/Header header\n"
+    return "time stamp\n"
 "std_msgs/String string\n"
+"sensor_msgs/Image img\n"
+"================================================================================\n"
+"MSG: std_msgs/String\n"
+"string data\n"
+"\n"
+"================================================================================\n"
+"MSG: sensor_msgs/Image\n"
+"# This message contains an uncompressed image\n"
+"# (0, 0) is at top-left corner of image\n"
+"#\n"
+"\n"
+"Header header        # Header timestamp should be acquisition time of image\n"
+"                     # Header frame_id should be optical frame of camera\n"
+"                     # origin of frame should be optical center of camera\n"
+"                     # +x should point to the right in the image\n"
+"                     # +y should point down in the image\n"
+"                     # +z should point into to plane of the image\n"
+"                     # If the frame_id here and the frame_id of the CameraInfo\n"
+"                     # message associated with the image conflict\n"
+"                     # the behavior is undefined\n"
+"\n"
+"uint32 height         # image height, that is, number of rows\n"
+"uint32 width          # image width, that is, number of columns\n"
+"\n"
+"# The legal values for encoding are in file src/image_encodings.cpp\n"
+"# If you want to standardize a new string format, join\n"
+"# ros-users@lists.sourceforge.net and send an email proposing a new encoding.\n"
+"\n"
+"string encoding       # Encoding of pixels -- channel meaning, ordering, size\n"
+"                      # taken from the list of strings in include/sensor_msgs/image_encodings.h\n"
+"\n"
+"uint8 is_bigendian    # is this data bigendian?\n"
+"uint32 step           # Full row length in bytes\n"
+"uint8[] data          # actual matrix data, size is (step * rows)\n"
+"\n"
 "================================================================================\n"
 "MSG: std_msgs/Header\n"
 "# Standard metadata for higher-level stamped data types.\n"
@@ -171,10 +212,6 @@ struct Definition< ::task2::StringStamped_<ContainerAllocator> >
 "time stamp\n"
 "#Frame this data is associated with\n"
 "string frame_id\n"
-"\n"
-"================================================================================\n"
-"MSG: std_msgs/String\n"
-"string data\n"
 ;
   }
 
@@ -193,8 +230,9 @@ namespace serialization
   {
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
-      stream.next(m.header);
+      stream.next(m.stamp);
       stream.next(m.string);
+      stream.next(m.img);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -213,12 +251,14 @@ struct Printer< ::task2::StringStamped_<ContainerAllocator> >
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::task2::StringStamped_<ContainerAllocator>& v)
   {
-    s << indent << "header: ";
-    s << std::endl;
-    Printer< ::std_msgs::Header_<ContainerAllocator> >::stream(s, indent + "  ", v.header);
+    s << indent << "stamp: ";
+    Printer<ros::Time>::stream(s, indent + "  ", v.stamp);
     s << indent << "string: ";
     s << std::endl;
     Printer< ::std_msgs::String_<ContainerAllocator> >::stream(s, indent + "  ", v.string);
+    s << indent << "img: ";
+    s << std::endl;
+    Printer< ::sensor_msgs::Image_<ContainerAllocator> >::stream(s, indent + "  ", v.img);
   }
 };
 

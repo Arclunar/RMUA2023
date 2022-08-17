@@ -51,12 +51,12 @@
 },
 {
   "directory": "/home/anifan/rmua/catkin_ws/build/task2",
-  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"task2\\\" -I/home/anifan/rmua/catkin_ws/devel/include -I/home/anifan/rmua/catkin_ws/src/task2/include -I/opt/ros/melodic/include -I/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv  -O3 -DNDEBUG   -o CMakeFiles/publisher.dir/src/publisher.cpp.o -c /home/anifan/rmua/catkin_ws/src/task2/src/publisher.cpp",
+  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"task2\\\" -I/home/anifan/rmua/catkin_ws/devel/include -I/home/anifan/rmua/catkin_ws/src/task2/include -I/opt/ros/melodic/include -I/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -isystem /usr/include/opencv  -O3 -DNDEBUG   -o CMakeFiles/publisher.dir/src/publisher.cpp.o -c /home/anifan/rmua/catkin_ws/src/task2/src/publisher.cpp",
   "file": "/home/anifan/rmua/catkin_ws/src/task2/src/publisher.cpp"
 },
 {
   "directory": "/home/anifan/rmua/catkin_ws/build/task2",
-  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"task2\\\" -I/home/anifan/rmua/catkin_ws/devel/include -I/home/anifan/rmua/catkin_ws/src/task2/include -I/opt/ros/melodic/include -I/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv  -O3 -DNDEBUG   -o CMakeFiles/subscriber.dir/src/subscriber.cpp.o -c /home/anifan/rmua/catkin_ws/src/task2/src/subscriber.cpp",
+  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"task2\\\" -I/home/anifan/rmua/catkin_ws/devel/include -I/home/anifan/rmua/catkin_ws/src/task2/include -I/opt/ros/melodic/include -I/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -isystem /usr/include/opencv  -O3 -DNDEBUG   -o CMakeFiles/subscriber.dir/src/subscriber.cpp.o -c /home/anifan/rmua/catkin_ws/src/task2/src/subscriber.cpp",
   "file": "/home/anifan/rmua/catkin_ws/src/task2/src/subscriber.cpp"
 },
 {

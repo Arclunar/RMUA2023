@@ -1,11 +1,11 @@
+// ****************************************************
 // file name : client.cpp
-// date : 8/15/2022
-// source : ros wiki
-// editor : howard.zheng
+// date : 8/15/2022i
+// author : howard.zheng
 // description : task 2 client
 // editing history : 
 //      8/16/2022 add ros::param, service message with image attached, test the influence of msg load
-
+// ****************************************************
 
 #include <ros/ros.h>
 #include "task2/hello.h"
@@ -42,18 +42,23 @@ int main(int argc, char  *argv[])
 
     // 图片信息
     cv::Mat img;
-    img=cv::imread("/home/anifan/rmua/video_source/01.jpg");
+    std::string filename;
+    ros::param::get("~filename",filename); //获取图片文件名字
+    img=cv::imread(filename);
     sensor_msgs::ImagePtr msgImage;
     msgImage=cv_bridge::CvImage(std_msgs::Header(),"bgr8",img).toImageMsg();
-    hello_srv.request.img=*msgImage;
+    bool is_with_img=false;
+    ros::param::get("~is_with_img",is_with_img);
+    if(is_with_img) hello_srv.request.img=*msgImage;
 
 
     bool is_echo=true; // 是否打印消息
     ros::param::get("~is_echo",is_echo);
 
     int loop_times=100; // 循环发送请求次数
+    // nh.param("loop_times",loop_times,100);
     ros::param::get("~loop_times",loop_times);  // 从参数服务器获取循环次数，不用每次都编译了
-    
+
     double request_delay_sum=0; // 请求总延迟时间
     double response_delay_sum=0; // 响应总延迟时间
 

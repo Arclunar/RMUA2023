@@ -59,6 +59,7 @@ task2/CMakeFiles/task2_generate_messages_cpp: /home/anifan/rmua/catkin_ws/devel/
 
 /home/anifan/rmua/catkin_ws/devel/include/task2/StringStamped.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/anifan/rmua/catkin_ws/devel/include/task2/StringStamped.h: /home/anifan/rmua/catkin_ws/src/task2/msg/StringStamped.msg
+/home/anifan/rmua/catkin_ws/devel/include/task2/StringStamped.h: /opt/ros/melodic/share/sensor_msgs/msg/Image.msg
 /home/anifan/rmua/catkin_ws/devel/include/task2/StringStamped.h: /opt/ros/melodic/share/std_msgs/msg/String.msg
 /home/anifan/rmua/catkin_ws/devel/include/task2/StringStamped.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/anifan/rmua/catkin_ws/devel/include/task2/StringStamped.h: /opt/ros/melodic/share/gencpp/msg.h.template

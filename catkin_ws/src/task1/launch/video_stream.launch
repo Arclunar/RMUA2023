@@ -1,8 +1,8 @@
 <launch>
     <node pkg="task1" type="image_publisher" name="image_publisher" args="0" output="screen">
+    <!-- 在这里修改视频文件路径 -->
+        <param name="filename" type="string" value="/home/anifan/rmua/video_source/02.mp4"/>
     </node>
-
     <node pkg="task1" type="image_subscriber" name="image_subscriber" args="0" output="screen">
     </node>
-
 </launch>

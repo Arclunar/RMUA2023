@@ -59,6 +59,7 @@ task2/CMakeFiles/task2_generate_messages_lisp: /home/anifan/rmua/catkin_ws/devel
 
 /home/anifan/rmua/catkin_ws/devel/share/common-lisp/ros/task2/msg/StringStamped.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
 /home/anifan/rmua/catkin_ws/devel/share/common-lisp/ros/task2/msg/StringStamped.lisp: /home/anifan/rmua/catkin_ws/src/task2/msg/StringStamped.msg
+/home/anifan/rmua/catkin_ws/devel/share/common-lisp/ros/task2/msg/StringStamped.lisp: /opt/ros/melodic/share/sensor_msgs/msg/Image.msg
 /home/anifan/rmua/catkin_ws/devel/share/common-lisp/ros/task2/msg/StringStamped.lisp: /opt/ros/melodic/share/std_msgs/msg/String.msg
 /home/anifan/rmua/catkin_ws/devel/share/common-lisp/ros/task2/msg/StringStamped.lisp: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/anifan/rmua/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Lisp code from task2/StringStamped.msg"

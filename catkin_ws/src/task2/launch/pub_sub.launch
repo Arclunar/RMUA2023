@@ -1,0 +1,10 @@
+<launch>
+    <!-- 是否携带图片 -->
+    <param name="is_with_img" type="bool" value="true"/> 
+    <!-- 指定循环次数 -->
+    <param name="loop_times" type="int" value="10" />
+    <!-- 指定图片文件路径 -->
+    <param name="filename" type="string" value="/home/anifan/rmua/video_source/01.jpg"/>
+    <node pkg="task2" type="subscriber" name="subscriber" output="screen" />
+    <node pkg="task2" type="publisher" name="publisher" output="screen"/>
+</launch>

@@ -1,3 +1,13 @@
+// ****************************************************
+// file name : image_subscriber.cpp
+// date : 8/15/2022
+// author : howard.zheng
+// description : task 1 subscriber
+// editing history : 
+//      
+// ****************************************************
+
+
 #include <ros/ros.h>
 #include <image_transport/image_transport.h>
 #include <opencv2/highgui/highgui.hpp>
@@ -5,25 +15,19 @@
 #include <sstream>
 #include "std_msgs/Float64.h"
 
+
 // 优化
 // 将fps加入参数服务器，不需要使用全局变量
 
 cv::VideoWriter writer;
 
-// 订阅帧数回调函数
-// void fpsCallback(const std_msgs::Float64ConstPtr & msgFps)
-// {
-//     //ROS_INFO("msgFtp->data is %f",msgFps->data);
-//     fps=msgFps->data;
-// }
 
 // 订阅图像回调函数
 void imageCallback(const sensor_msgs::ImageConstPtr & msgRGB)
 {
-    // 将msg转成cv image格式
+    //*** 将msg转成cv image格式
     cv::Mat frame;
     cv_bridge::CvImageConstPtr cv_ptrRGB;
-    cv_ptrRGB = cv_bridge::toCvShare(msgRGB);
     try
     {
         cv_ptrRGB = cv_bridge::toCvShare(msgRGB);
@@ -34,47 +38,63 @@ void imageCallback(const sensor_msgs::ImageConstPtr & msgRGB)
         return;
     }
 
+    //*** 获取 cv格式图像
     frame=cv_ptrRGB->image;
 
+    //*** 图像写入视频
     writer.write(frame);
-    cv::imshow("received image",frame);
 
+
+    //*** 根据给定的fps播放图像
+    cv::imshow("received image",frame);
     double fps;
     ros::param::get("fps",fps);
-    cv::waitKey(1000.0/fps);
+    cv::waitKey(1000.0/fps); // 根据fps设置延时
 }
 
 
 int main(int argc, char *argv[])
 {
-    cv::Size size(1920,1080);
 
 
-    
+    //** 支持中文
     setlocale(LC_ALL,"");
 
+    //** 初始化结点
     ros::init(argc,argv,"image_subscriber");
     ros::NodeHandle nh;
 
+    //*** 打开窗口，准备播放接收到的视频
     cv::namedWindow("received image",CV_WINDOW_NORMAL);
     cv::resizeWindow("received image",848,640);
 
+    //** 使用ImageTransport 接收图像对象
     image_transport::ImageTransport it(nh);
-    // ros::Subscriber sub_fps=nh.subscribe("fps_topic",1,fpsCallback);
-    ros::Duration(0.03).sleep();
+    ros::Duration(0.3).sleep();
 
-    // 从参数服务器获取帧率
+    //*** 从参数服务器获取帧率和尺寸
     double fps;
+    double width,height;
+
     ros::param::get("fps",fps);
+    ros::param::get("video_width",width);
+    ros::param::get("video_height",height);
 
     ROS_INFO("received fps is %f",fps);
-    writer.open("/home/anifan/rmua/ROS_hw/video_source/saved.avi", CV_FOURCC('M', 'J', 'P', 'G'), fps, size, true);
+    ROS_INFO("width:%f",width);
+    ROS_INFO("height:%f",height);
+    
+    cv::Size size(width,height);
 
+    //*** 保存文件
+    writer.open("/home/anifan/rmua/video_source/saved.avi", CV_FOURCC('M', 'J', 'P', 'G'), fps, size, true);
+
+    //*** 订阅 
     image_transport::Subscriber sub=it.subscribe("camera/image",1,imageCallback);
     
     ros::spin();
 
-    // 推出程序后关闭视频流，其实前面有spin，写了也没啥用
+    //*** 退出程序后关闭视频流，其实前面有spin，写了也没啥用
     writer.release();
 
     return 0;

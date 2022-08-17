@@ -19,7 +19,7 @@ add_custom_target(task2_generate_messages ALL)
 
 get_filename_component(_filename "/home/anifan/rmua/catkin_ws/src/task2/msg/StringStamped.msg" NAME_WE)
 add_custom_target(_task2_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "task2" "/home/anifan/rmua/catkin_ws/src/task2/msg/StringStamped.msg" "std_msgs/String:std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "task2" "/home/anifan/rmua/catkin_ws/src/task2/msg/StringStamped.msg" "sensor_msgs/Image:std_msgs/String:std_msgs/Header"
 )
 
 get_filename_component(_filename "/home/anifan/rmua/catkin_ws/src/task2/srv/hello.srv" NAME_WE)
@@ -36,7 +36,7 @@ add_custom_target(_task2_generate_messages_check_deps_${_filename}
 _generate_msg_cpp(task2
   "/home/anifan/rmua/catkin_ws/src/task2/msg/StringStamped.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/melodic/share/std_msgs/cmake/../msg/String.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/melodic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/String.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/task2
 )
 
@@ -77,7 +77,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS task2_generate_messages_cpp)
 _generate_msg_eus(task2
   "/home/anifan/rmua/catkin_ws/src/task2/msg/StringStamped.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/melodic/share/std_msgs/cmake/../msg/String.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/melodic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/String.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/task2
 )
 
@@ -118,7 +118,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS task2_generate_messages_eus)
 _generate_msg_lisp(task2
   "/home/anifan/rmua/catkin_ws/src/task2/msg/StringStamped.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/melodic/share/std_msgs/cmake/../msg/String.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/melodic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/String.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/task2
 )
 
@@ -159,7 +159,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS task2_generate_messages_lisp)
 _generate_msg_nodejs(task2
   "/home/anifan/rmua/catkin_ws/src/task2/msg/StringStamped.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/melodic/share/std_msgs/cmake/../msg/String.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/melodic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/String.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/task2
 )
 
@@ -200,7 +200,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS task2_generate_messages_nodejs)
 _generate_msg_py(task2
   "/home/anifan/rmua/catkin_ws/src/task2/msg/StringStamped.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/melodic/share/std_msgs/cmake/../msg/String.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/melodic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/String.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/task2
 )
 

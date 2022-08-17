@@ -59,6 +59,7 @@ task2/CMakeFiles/task2_generate_messages_nodejs: /home/anifan/rmua/catkin_ws/dev
 
 /home/anifan/rmua/catkin_ws/devel/share/gennodejs/ros/task2/msg/StringStamped.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
 /home/anifan/rmua/catkin_ws/devel/share/gennodejs/ros/task2/msg/StringStamped.js: /home/anifan/rmua/catkin_ws/src/task2/msg/StringStamped.msg
+/home/anifan/rmua/catkin_ws/devel/share/gennodejs/ros/task2/msg/StringStamped.js: /opt/ros/melodic/share/sensor_msgs/msg/Image.msg
 /home/anifan/rmua/catkin_ws/devel/share/gennodejs/ros/task2/msg/StringStamped.js: /opt/ros/melodic/share/std_msgs/msg/String.msg
 /home/anifan/rmua/catkin_ws/devel/share/gennodejs/ros/task2/msg/StringStamped.js: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/anifan/rmua/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from task2/StringStamped.msg"

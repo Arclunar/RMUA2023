@@ -3,6 +3,16 @@
 
 task2/CMakeFiles/subscriber.dir/src/subscriber.cpp.o: /home/anifan/rmua/catkin_ws/devel/include/task2/StringStamped.h
 task2/CMakeFiles/subscriber.dir/src/subscriber.cpp.o: /home/anifan/rmua/catkin_ws/src/task2/src/subscriber.cpp
+task2/CMakeFiles/subscriber.dir/src/subscriber.cpp.o: /opt/ros/melodic/include/cv_bridge/cv_bridge.h
+task2/CMakeFiles/subscriber.dir/src/subscriber.cpp.o: /opt/ros/melodic/include/image_transport/camera_publisher.h
+task2/CMakeFiles/subscriber.dir/src/subscriber.cpp.o: /opt/ros/melodic/include/image_transport/camera_subscriber.h
+task2/CMakeFiles/subscriber.dir/src/subscriber.cpp.o: /opt/ros/melodic/include/image_transport/exception.h
+task2/CMakeFiles/subscriber.dir/src/subscriber.cpp.o: /opt/ros/melodic/include/image_transport/image_transport.h
+task2/CMakeFiles/subscriber.dir/src/subscriber.cpp.o: /opt/ros/melodic/include/image_transport/loader_fwds.h
+task2/CMakeFiles/subscriber.dir/src/subscriber.cpp.o: /opt/ros/melodic/include/image_transport/publisher.h
+task2/CMakeFiles/subscriber.dir/src/subscriber.cpp.o: /opt/ros/melodic/include/image_transport/single_subscriber_publisher.h
+task2/CMakeFiles/subscriber.dir/src/subscriber.cpp.o: /opt/ros/melodic/include/image_transport/subscriber.h
+task2/CMakeFiles/subscriber.dir/src/subscriber.cpp.o: /opt/ros/melodic/include/image_transport/transport_hints.h
 task2/CMakeFiles/subscriber.dir/src/subscriber.cpp.o: /opt/ros/melodic/include/ros/advertise_options.h
 task2/CMakeFiles/subscriber.dir/src/subscriber.cpp.o: /opt/ros/melodic/include/ros/advertise_service_options.h
 task2/CMakeFiles/subscriber.dir/src/subscriber.cpp.o: /opt/ros/melodic/include/ros/assert.h
@@ -59,6 +69,11 @@ task2/CMakeFiles/subscriber.dir/src/subscriber.cpp.o: /opt/ros/melodic/include/r
 task2/CMakeFiles/subscriber.dir/src/subscriber.cpp.o: /opt/ros/melodic/include/ros/wall_timer.h
 task2/CMakeFiles/subscriber.dir/src/subscriber.cpp.o: /opt/ros/melodic/include/ros/wall_timer_options.h
 task2/CMakeFiles/subscriber.dir/src/subscriber.cpp.o: /opt/ros/melodic/include/rosconsole/macros_generated.h
+task2/CMakeFiles/subscriber.dir/src/subscriber.cpp.o: /opt/ros/melodic/include/sensor_msgs/CameraInfo.h
+task2/CMakeFiles/subscriber.dir/src/subscriber.cpp.o: /opt/ros/melodic/include/sensor_msgs/CompressedImage.h
+task2/CMakeFiles/subscriber.dir/src/subscriber.cpp.o: /opt/ros/melodic/include/sensor_msgs/Image.h
+task2/CMakeFiles/subscriber.dir/src/subscriber.cpp.o: /opt/ros/melodic/include/sensor_msgs/RegionOfInterest.h
+task2/CMakeFiles/subscriber.dir/src/subscriber.cpp.o: /opt/ros/melodic/include/sensor_msgs/image_encodings.h
 task2/CMakeFiles/subscriber.dir/src/subscriber.cpp.o: /opt/ros/melodic/include/std_msgs/Header.h
 task2/CMakeFiles/subscriber.dir/src/subscriber.cpp.o: /opt/ros/melodic/include/std_msgs/String.h
 task2/CMakeFiles/subscriber.dir/src/subscriber.cpp.o: /opt/ros/melodic/include/xmlrpcpp/XmlRpcDecl.h

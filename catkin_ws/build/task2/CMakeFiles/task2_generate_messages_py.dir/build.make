@@ -61,6 +61,7 @@ task2/CMakeFiles/task2_generate_messages_py: /home/anifan/rmua/catkin_ws/devel/l
 
 /home/anifan/rmua/catkin_ws/devel/lib/python2.7/dist-packages/task2/msg/_StringStamped.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
 /home/anifan/rmua/catkin_ws/devel/lib/python2.7/dist-packages/task2/msg/_StringStamped.py: /home/anifan/rmua/catkin_ws/src/task2/msg/StringStamped.msg
+/home/anifan/rmua/catkin_ws/devel/lib/python2.7/dist-packages/task2/msg/_StringStamped.py: /opt/ros/melodic/share/sensor_msgs/msg/Image.msg
 /home/anifan/rmua/catkin_ws/devel/lib/python2.7/dist-packages/task2/msg/_StringStamped.py: /opt/ros/melodic/share/std_msgs/msg/String.msg
 /home/anifan/rmua/catkin_ws/devel/lib/python2.7/dist-packages/task2/msg/_StringStamped.py: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/anifan/rmua/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG task2/StringStamped"

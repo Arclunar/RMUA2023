@@ -179,13 +179,13 @@ add_executable(publisher src/publisher.cpp)
 
 add_dependencies(publisher ${PROJECT_NAME}_generate_messages_cpp)
 
-target_link_libraries(publisher ${catkin_LIBRARIES} )
+target_link_libraries(publisher ${catkin_LIBRARIES} ${OpenCV_LIBS} )
 
 add_executable(subscriber src/subscriber.cpp )
 
 add_dependencies(subscriber ${PROJECT_NAME}_generate_messages_cpp)
 
-target_link_libraries(subscriber ${catkin_LIBRARIES})
+target_link_libraries(subscriber ${catkin_LIBRARIES} ${OpenCV_LIBS})
 
 add_executable(server src/server)
 

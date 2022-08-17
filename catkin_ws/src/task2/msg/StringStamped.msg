@@ -1,2 +1,3 @@
-std_msgs/Header header
+time stamp
 std_msgs/String string
+sensor_msgs/Image img
